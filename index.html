@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Riding</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Baloo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <div class="top-icon">
-            <img src="image.png" alt="Top Icon">
-        </div>
-        <ul>
-        
-            <li><img src="home.png" alt="Home"></li>
-            <li><img src="info.png" alt="Search"></li>
-            <li><img src="news.png" alt="Package"></li>
-            <li><img src="reflection.png" alt="Settings"></li>
-            <li><img src="people.png" alt="Settings"></li>
-        </ul>
-    </div>
+    <nav class="sidebar">
+      <div class="top-icon">
+        <img src="image.png" alt="Top Icon" />
+      </div>
+      <ul>
+        <li class="nav-item home">
+          <img src="home.png" alt="Home" aria-label="Home" />
+        </li>
+        <li class="nav-item search">
+          <img src="info.png" alt="Search" aria-label="Search" />
+        </li>
+        <li class="nav-item news">
+          <img src="news.png" alt="News" aria-label="News" />
+        </li>
+        <li class="nav-item reflection">
+          <img src="reflection.png" alt="Reflection" aria-label="Reflection" />
+        </li>
+        <li class="nav-item people">
+          <img src="people.png" alt="People" aria-label="People" />
+        </li>
+      </ul>
+      <!-- Footer Text -->
+      <div class="footer-text">
+        <p>NCSI 101</p>
+      </div>
+    </nav>
 
     <!-- Main Content -->
-    <div class="content">
-        <div class="gallery">
-            <!-- Large Hero Image -->
-            <div class="grid-item large">
-                <img src="pic1.png" alt="Smart Scooter">
-                <div class="overlay hero-overlay">
-                    <h1>WELCOME</h1>
-                    <p>Ready to Explore the World of Technology? <br> Let’s Learn Together! </p>
-                </div>
+    <main class="content">
+      <!-- Collage Layout -->
+      <div class="collage">
+        <!-- Top Row: Two images with unequal widths -->
+        <div class="collage-row top">
+          <div class="grid-item">
+            <img src="pic1.png" alt="Smart Scooter on the Move" />
+            <div class="overlay lower-left-noBg">
+              WELCOME
+              <div class="subtitle">
+                Experience the future of Technology
+              </div>
             </div>
-            <!-- Small Feature Boxes -->
-            <div class="grid-item small">
-                <img src="Midjourney knolling.jpg" alt="Scooter Charging">
-                <div class="overlay hero-overlay"><h2>NSCI 101 WEBSITE</h2></div>
-            </div>
-            <div class="grid-item medium">
-                <img src="pic2.png" alt="Smart App Feature">
-                <div class="overlay lower-left-overlay"><p>"Welcome to your go-to platform for technology – explore featured content, key concepts, updates, articles, opinions, and meet the creators behind it all."</p></div>
-            </div>
-            <div class="grid-item small">
-                <img src="pic3.png" alt="Innovative Lights">
-                <div class="overlay middle-top-overlay">Why we made this website?</div>
-            </div>
-            <!-- Wide Image to Fill the Bottom Right Gap -->
-            <div class="grid-item wide">
-                <img src="download.jpg" alt="Long Battery Life">
-                <div class="overlay middle-top-overlay">What are the Benefits of this website?</div>
-            </div>
+          </div>
+          <div class="grid-item">
+            <img src="pic2.png" alt="Smart App Feature Highlight" />
+            <div class="overlay lower-left-large">App Integration</div>
+          </div>
         </div>
-    </div>
-</body>
+        <!-- Bottom Row: Three images with custom overlay positions -->
+        <div class="collage-row bottom">
+          <div class="grid-item">
+            <img src="pic3.png" alt="Innovative Lights" />
+            <div class="overlay middle-bottom-overlay">Innovative Lights</div>
+          </div>
+          <div class="grid-item">
+            <img src="download.jpg" alt="Long Battery Life" />
+            <div class="overlay upper-middle-overlay">Long Battery Life</div>
+          </div>
+          <div class="grid-item">
+            <img src="Midjourney knolling.jpg" alt="Scooter Charging" />
+            <div class="overlay upper-middle-overlay">Fast Charging</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotional New Section with building.jpg as Background -->
+      <div class="new-section">
+        <div class="new-section-content">
+          <h2>OUR TECHNOLOGY INFORMATION WEBSITE</h2>
+          <p>
+            Discover the creative WEBSITE FULL OF BULLSHIT AND FALSE INFO.
+            takan nako mag iskwela pero sige lang gani
+          </p>
+          <a href="#" class="btn">MORE DETAILS</a>
+        </div>
+        <!-- New Categories Container positioned at the bottom center -->
+        <div class="new-section-categories">
+          <div class="category">
+            <h3>Info Boards</h3>
+            <p>Key technology concepts, explanations, or guides</p>
+          </div>
+          <div class="category">
+            <h3>Recent Happenings</h3>
+            <p>News, updates, published articles and latest tech events</p>
+          </div>
+          <div class="category">
+            <h3>Reflection</h3>
+            <p>Opinion pieces, analysis, and future predictions</p>
+          </div>
+          <div class="category">
+            <h3>About Us</h3>
+            <p>About the creators</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
