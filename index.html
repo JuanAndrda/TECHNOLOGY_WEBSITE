@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-    <!-- Horizontal Taskbar -->
+    <!-- Horizontal Taskbar (Sidebar) -->
     <nav class="sidebar">
       <div class="top-icon">
         <img src="image.png" alt="Top Icon" />
@@ -38,87 +38,99 @@
       </div>
     </nav>
 
-    <!-- Container with dark gradient background for main content -->
-    <div class="container">
-      <!-- Main Content -->
-      <main class="content">
-        <!-- Photo Collage Layout -->
-        <div class="collage">
-          <!-- Top Row: Two images with unequal widths -->
-          <div class="collage-row top">
-            <!-- First Collage Item: City -->
-            <div class="grid-item">
-              <img src="City.jpg" alt="Smart Scooter on the Move" />
-              <div class="overlay lower-left-noBg">
-                WELCOME
-                <div class="subtitle">
-                  Experience the future of Technology
+    <!-- Wrapper for inner content -->
+    <div class="wrapper">
+      <!-- Container for main content -->
+      <div class="container">
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Photo Collage Layout -->
+          <div class="collage animate-scroll">
+            <!-- Top Row -->
+            <div class="collage-row top">
+              <!-- First Collage Item: City -->
+              <div class="grid-item">
+                <img src="City.jpg" alt="Smart Scooter on the Move" />
+                <div class="overlay lower-left-noBg">
+                  WELCOME
+                  <div class="subtitle">
+                    Experience the future of Technology
+                  </div>
+                </div>
+                <video class="hover-video" muted loop preload="auto" src="City.mp4"></video>
+              </div>
+              <!-- Second Collage Item: Coding -->
+              <div class="grid-item">
+                <img src="coding ❤️ an AI.jpg" alt="Smart App Feature Highlight" />
+                <div class="overlay lower-left-large">
+                  App Integration
+                </div>
+                <video class="hover-video" muted loop preload="auto" src="coding.mp4"></video>
+              </div>
+            </div>
+            <!-- Bottom Row -->
+            <div class="collage-row bottom">
+              <!-- First Grid Item: Manufacturing -->
+              <div class="grid-item">
+                <img src="menufacturing.jpg" alt="Innovative Lights" />
+                <div class="overlay middle-bottom-overlay">
+                  Innovative Lights
+                </div>
+                <video class="hover-video" muted loop preload="auto" src="menufacturing.mp4"></video>
+              </div>
+              <!-- Second Grid Item: Long Battery Life -->
+              <div class="grid-item adjust-up">
+                <img src="cp.png" alt="Long Battery Life" />
+                <div class="overlay upper-middle-overlay">
+                  Long Battery Life
+                </div>
+                <video class="hover-video" muted loop preload="auto" src="cp.mp4"></video>
+              </div>
+              <!-- Third Grid Item: Charging -->
+              <div class="grid-item">
+                <img src="Midjourney knolling.jpg" alt="Scooter Charging" />
+                <div class="overlay upper-middle-overlay">
+                  Fast Charging
                 </div>
               </div>
-              <video class="hover-video" muted loop preload="auto" src="City.mp4"></video>
-            </div>
-            <!-- Second Collage Item: Coding -->
-            <div class="grid-item">
-              <img src="coding ❤️ an AI.jpg" alt="Smart App Feature Highlight" />
-              <div class="overlay lower-left-large">App Integration</div>
-              <video class="hover-video" muted loop preload="auto" src="coding.mp4"></video>
             </div>
           </div>
-          <!-- Bottom Row: Three images with custom overlay positions -->
-          <div class="collage-row bottom">
-            <!-- First Grid Item: Manufacturing -->
-            <div class="grid-item">
-              <img src="menufacturing.jpg" alt="Innovative Lights" />
-              <div class="overlay middle-bottom-overlay">Innovative Lights</div>
-              <video class="hover-video" muted loop preload="auto" src="menufacturing.mp4"></video>
-            </div>
-            <!-- Second Grid Item: Adjusted to show more of the bottom portion -->
-            <div class="grid-item adjust-up">
-              <img src="cp.png" alt="Long Battery Life" />
-              <div class="overlay upper-middle-overlay">Long Battery Life</div>
-              <video class="hover-video" muted loop preload="auto" src="cp.mp4"></video>
-            </div>
-            <!-- Third Grid Item: Charging -->
-            <div class="grid-item">
-              <img src="Midjourney knolling.jpg" alt="Scooter Charging" />
-              <div class="overlay upper-middle-overlay">Fast Charging</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Promotional New Section -->
-        <div class="new-section">
-          <div class="new-section-content">
-            <h2>OUR TECHNOLOGY INFORMATION WEBSITE</h2>
-            <p>
-              Discover the creative WEBSITE FULL OF BULLSHIT AND FALSE INFO.
-              takan nako mag iskwela pero sige lang gani
-            </p>
-            <a href="#" class="btn">MORE DETAILS</a>
+          <!-- Promotional New Section with Black Gradient Background -->
+          <div class="new-section animate-scroll">
+            <div class="new-section-content">
+              <h2>OUR TECHNOLOGY INFORMATION WEBSITE</h2>
+              <p>
+                Discover the creative WEBSITE FULL OF BULLSHIT AND FALSE INFO.
+                takan nako mag iskwela pero sige lang gani
+              </p>
+              <a href="#" class="btn">MORE DETAILS</a>
+            </div>
+            <!-- Updated Categories Container: aligned at the bottom -->
+            <div class="new-section-categories">
+              <div class="category">
+                <h3>Info Boards</h3>
+                <p>Key technology concepts, explanations, or guides</p>
+              </div>
+              <div class="category">
+                <h3>Recent Happenings</h3>
+                <p>News, updates, published articles and latest tech events</p>
+              </div>
+              <div class="category">
+                <h3>Reflection</h3>
+                <p>Opinion pieces, analysis, and future predictions</p>
+              </div>
+              <div class="category">
+                <h3>About Us</h3>
+                <p>About the creators</p>
+              </div>
+            </div>
           </div>
-          <div class="new-section-categories">
-            <div class="category">
-              <h3>Info Boards</h3>
-              <p>Key technology concepts, explanations, or guides</p>
-            </div>
-            <div class="category">
-              <h3>Recent Happenings</h3>
-              <p>News, updates, published articles and latest tech events</p>
-            </div>
-            <div class="category">
-              <h3>Reflection</h3>
-              <p>Opinion pieces, analysis, and future predictions</p>
-            </div>
-            <div class="category">
-              <h3>About Us</h3>
-              <p>About the creators</p>
-            </div>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
 
-    <!-- Include External JS File -->
+    <!-- External JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

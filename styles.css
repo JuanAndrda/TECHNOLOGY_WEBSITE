@@ -8,69 +8,106 @@
   font-family: 'Quicksand', 'Baloo', sans-serif;
 }
 
-/* Body: Solid black background */
+/* Ensure html and body fill the whole screen */
+html,
 body {
-  background-color: #000;
-  color: white;
-  min-height: 100vh;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Horizontal Taskbar (formerly Sidebar) with updated height */
+/*
+  Body Background: Two-layer gradient background where:
+  - The top layer is a semi‑transparent horizontal gradient.
+  - The bottom layer is pure black.
+  Both layers are fixed and forced to exactly fill the viewport.
+*/
+body {
+  background: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+    #000;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-attachment: fixed, fixed;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s ease;
+}
+
+/* When scrolled, keeping the same background (modify if needed) */
+body.scrolled {
+  background: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+    #000;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-attachment: fixed, fixed;
+}
+
+/* Wrapper for inner content */
+.wrapper {
+  padding: 40px;
+  flex: 1;
+  margin-top: 45px; /* Prevent content from hiding behind the fixed header */
+}
+
+/* Horizontal Taskbar (Sidebar) */
 .sidebar {
   width: 100%;
-  height: 45px;  /* Further reduced height */
+  height: 45px;
   background: linear-gradient(90deg, #1a1a1a, #333333);
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; /* Center vertically */
   justify-content: space-between;
   padding: 0 20px;
-  border-radius: 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
-/* Top Icon (Logo) remains on the left with adjusted dimensions */
+/* When the header is hidden */
+.sidebar.hide {
+  transform: translateY(-100%);
+}
+
+/* Top Icon (Logo) */
 .top-icon {
   display: flex;
   align-items: center;
 }
 .top-icon img {
-  width: 35px;   /* Reduced size */
-  height: 35px;  /* Reduced size */
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: none;
   padding: 4px;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 .top-icon img:hover {
   transform: scale(1.1);
 }
 
-/* Navigation List centered with extra spacing between icons */
+/* Navigation List - Spaced out */
 .sidebar ul {
   list-style: none;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 50px;  /* Adjusted gap between icons */
-  flex: 1;
+  justify-content: space-evenly;
+  gap: 60px;
+  padding: 0 50px;
   margin: 0;
-  padding: 0;
 }
 
-/* Navigation Items - Highlight surrounding on hover with adjusted padding */
+/* Navigation Items */
 .nav-item {
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  padding: 4px;  /* Reduced padding */
+  padding: 4px;
 }
 .nav-item:hover {
   background-color: rgba(204, 204, 204, 0.3);
@@ -78,37 +115,41 @@ body {
   border-radius: 50%;
 }
 .nav-item img {
-  width: 20px;  /* Reduced nav icon size */
+  width: 16px;
   transition: transform 0.3s ease;
 }
 .nav-item:hover img {
   transform: scale(1.1);
 }
 
-/* Footer Text on the right (remains white) */
+/* Footer Text */
 .footer-text {
-  font-family: 'Quicksand', 'Baloo', sans-serif;
   font-size: 12px;
   color: white;
   padding: 10px;
 }
 
-/* Container for main content (below the taskbar) */
+/* Container for Main Content (transparent) */
 .container {
   flex: 1;
-  background: linear-gradient(180deg, #000000, #0d0d0d);
+  background: transparent;
   border-radius: 15px;
-  margin-top: 20px;
   padding: 20px 5px;
 }
 
-/* Main Content Area inside container */
+/* Main Content Area */
 .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  overflow-y: auto;
+}
+
+/* Animate-Scroll: Initial style for fade/slide effect */
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Collage Layout */
@@ -117,7 +158,6 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  margin-top: 0;
   margin-bottom: 100px;
 }
 
@@ -128,7 +168,7 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
-/* Bottom Row: Three images with custom overlay positions */
+/* Bottom Row: Three images */
 .collage-row.bottom {
   display: grid;
   gap: 20px;
@@ -156,7 +196,7 @@ body {
 .grid-item:hover img {
   transform: scale(1.05);
 }
-/* For items with adjust-up class, display more of the bottom portion */
+/* Adjust for items with the adjust-up class */
 .grid-item.adjust-up img,
 .grid-item.adjust-up .hover-video {
   object-position: bottom;
@@ -168,14 +208,12 @@ body {
   color: #ffffff;
   font-size: 15px;
   font-weight: bold;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
   padding: 5px 10px;
   border-radius: 10px;
   background: none;
   z-index: 4;
 }
-
-/* Default Centered Overlay */
 .center-overlay {
   top: 50%;
   left: 50%;
@@ -187,14 +225,12 @@ body {
 .lower-left-large {
   bottom: 10px;
   left: 10px;
-  transform: none;
   font-size: 30px;
   text-align: left;
 }
 .lower-left-noBg {
   bottom: 10px;
   left: 10px;
-  transform: none;
   font-size: 40px;
   text-align: left;
   background: none;
@@ -219,7 +255,7 @@ body {
   text-align: center;
 }
 
-/* New Promotional Section */
+/* Promotional New Section with Black Gradient Background */
 .new-section {
   position: relative;
   width: 100%;
@@ -228,25 +264,18 @@ body {
   overflow: hidden;
   padding: 80px;
   min-height: 600px;
-  background: url('building.jpg') center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(26,26,26,0.8));
   color: #ffffff;
 }
+
+/* Remove pseudo-element overlay */
 .new-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  display: none;
 }
+
 .new-section-content {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position: relative;
   max-width: 70%;
-  margin: 0;
   z-index: 2;
 }
 .new-section-content h2 {
@@ -267,22 +296,23 @@ body {
   border-radius: 5px;
 }
 
-/* New Categories Container */
+/* New Categories Container: aligned at bottom with even spacing and gap */
 .new-section-categories {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: flex-end;
   width: 90%;
   max-width: 1200px;
+  gap: 20px;
+  text-align: center;
   z-index: 2;
 }
 .new-section-categories .category {
   position: relative;
-  text-align: center;
-  padding-bottom: 5px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
@@ -332,7 +362,6 @@ body {
     padding: 10px;
     position: static;
     width: 100%;
-    border-radius: 0;
   }
   .sidebar ul {
     flex-direction: row;
