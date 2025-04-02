@@ -8,7 +8,7 @@
   font-family: 'Quicksand', 'Baloo', sans-serif;
 }
 
-/* Ensure html and body fill the whole screen */
+/* Ensure html and body fill the viewport */
 html,
 body {
   width: 100%;
@@ -17,70 +17,43 @@ body {
   padding: 0;
 }
 
-/*
-  Body Background: Two-layer gradient background where:
-  - The top layer is a semi‑transparent horizontal gradient.
-  - The bottom layer is pure black.
-  Both layers are fixed and forced to exactly fill the viewport.
-*/
+/* Body Background: Two-layer gradient */
 body {
   background: 
-    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
-    #000;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 100% 100%;
-  background-attachment: fixed, fixed;
+    linear-gradient(90deg, rgba(16, 16, 16, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+    #242323;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
   color: white;
   display: flex;
   flex-direction: column;
   transition: background 0.5s ease;
 }
 
-/* When scrolled, keeping the same background (modify if needed) */
-body.scrolled {
-  background: 
-    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
-    #000;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 100% 100%;
-  background-attachment: fixed, fixed;
-}
-
-/* Wrapper for inner content */
-.wrapper {
-  padding: 40px;
-  flex: 1;
-  margin-top: 45px; /* Prevent content from hiding behind the fixed header */
-}
-
-/* Horizontal Taskbar (Sidebar) */
+/* Sidebar Styles */
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 45px;
   background: linear-gradient(90deg, #1a1a1a, #333333);
   display: flex;
-  flex-direction: row;
-  align-items: center; /* Center vertically */
-  justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 1000;
   transition: transform 0.3s ease;
 }
-
-/* When the header is hidden */
-.sidebar.hide {
-  transform: translateY(-100%);
-}
-
-/* Top Icon (Logo) */
-.top-icon {
+.sidebar-header {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
 }
-.top-icon img {
+.sidebar-header .top-icon img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -88,26 +61,31 @@ body.scrolled {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-.top-icon img:hover {
+.sidebar-header .top-icon img:hover {
   transform: scale(1.1);
 }
-
-/* Navigation List - Spaced out */
+.sidebar-header .brand-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+}
 .sidebar ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 60px;
   list-style: none;
+}
+.nav-item {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 60px;
-  padding: 0 50px;
-  margin: 0;
-}
-
-/* Navigation Items */
-.nav-item {
+  justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   padding: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover {
   background-color: rgba(204, 204, 204, 0.3);
@@ -121,38 +99,26 @@ body.scrolled {
 .nav-item:hover img {
   transform: scale(1.1);
 }
-
-/* Footer Text */
 .footer-text {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 12px;
   color: white;
   padding: 10px;
 }
 
-/* Container for Main Content (transparent) */
+/* Wrapper for Main Content */
+.wrapper {
+  padding: 50px 20px;
+  margin-top: 40px;
+}
 .container {
-  flex: 1;
   background: transparent;
-  border-radius: 15px;
-  padding: 20px 5px;
 }
 
-/* Main Content Area */
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-/* Animate-Scroll: Initial style for fade/slide effect */
-.animate-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Collage Layout */
+/* Photo Collage Layout */
 .collage {
   display: flex;
   flex-direction: column;
@@ -160,49 +126,38 @@ body.scrolled {
   width: 100%;
   margin-bottom: 100px;
 }
-
-/* Top Row: Two images with unequal widths */
 .collage-row.top {
   display: grid;
   gap: 20px;
   grid-template-columns: 2fr 1fr;
 }
-
-/* Bottom Row: Three images */
 .collage-row.bottom {
   display: grid;
   gap: 20px;
   grid-template-columns: 2fr 1fr 1fr;
 }
-
-/* Grid Item Styling */
 .grid-item {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   height: 300px;
 }
 .grid-item:hover {
-  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 .grid-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(0.85);
-  transition: transform 0.3s ease;
 }
-.grid-item:hover img {
-  transform: scale(1.05);
-}
-/* Adjust for items with the adjust-up class */
 .grid-item.adjust-up img,
 .grid-item.adjust-up .hover-video {
   object-position: bottom;
 }
 
-/* Overlay Text for Images */
+/* Overlay for elements within grid items */
 .overlay {
   position: absolute;
   color: #ffffff;
@@ -214,34 +169,20 @@ body.scrolled {
   background: none;
   z-index: 4;
 }
-.center-overlay {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-/* Overlays for Top Row */
-.lower-left-large {
-  bottom: 10px;
-  left: 10px;
-  font-size: 30px;
-  text-align: left;
-}
 .lower-left-noBg {
   bottom: 10px;
   left: 10px;
   font-size: 40px;
-  text-align: left;
-  background: none;
 }
-.overlay .subtitle {
+.lower-left-large {
+  bottom: 10px;
+  left: 10px;
+  font-size: 30px;
+}
+.subtitle {
   font-size: 24px;
-  font-weight: normal;
   margin-top: 5px;
 }
-
-/* Overlays for Bottom Row */
 .middle-bottom-overlay {
   bottom: 10px;
   left: 50%;
@@ -255,7 +196,7 @@ body.scrolled {
   text-align: center;
 }
 
-/* Promotional New Section with Black Gradient Background */
+/* Promotional New Section */
 .new-section {
   position: relative;
   width: 100%;
@@ -264,15 +205,9 @@ body.scrolled {
   overflow: hidden;
   padding: 80px;
   min-height: 600px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(26,26,26,0.8));
+  background: linear-gradient(90deg, #1a1a1a, #333333);
   color: #ffffff;
 }
-
-/* Remove pseudo-element overlay */
-.new-section::before {
-  display: none;
-}
-
 .new-section-content {
   position: relative;
   max-width: 70%;
@@ -281,10 +216,14 @@ body.scrolled {
 .new-section-content h2 {
   font-size: 48px;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 .new-section-content p {
   font-size: 18px;
   margin-bottom: 20px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  color: #f0f0f0;
 }
 .new-section-content .btn {
   display: inline-block;
@@ -294,20 +233,19 @@ body.scrolled {
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-/* New Categories Container: aligned at bottom with even spacing and gap */
+/* New Categories Container */
 .new-section-categories {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  padding: 0 90px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-end;
-  width: 90%;
-  max-width: 1200px;
-  gap: 20px;
   text-align: center;
   z-index: 2;
 }
@@ -315,6 +253,18 @@ body.scrolled {
   position: relative;
   transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+/* Show "Click to preview" above the category when hovering */
+.new-section-categories .category:hover::before {
+  content: "Click to preview";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
 }
 .new-section-categories .category:hover {
   transform: scale(1.1);
@@ -326,7 +276,7 @@ body.scrolled {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #ff9900;
+  background-color: #fff7ee;
   transition: width 0.3s ease, left 0.3s ease;
 }
 .new-section-categories .category:hover::after {
@@ -336,19 +286,12 @@ body.scrolled {
 .new-section-categories .category h3 {
   font-size: 20px;
   margin-bottom: 5px;
-  transition: color 0.3s ease;
 }
 .new-section-categories .category p {
   font-size: 14px;
-  font-weight: normal;
-  transition: color 0.3s ease;
-}
-.new-section-categories .category:hover h3,
-.new-section-categories .category:hover p {
-  color: #ffffff;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
   .container {
     margin-top: 0;
@@ -389,14 +332,6 @@ body.scrolled {
   }
 }
 
-/* New Section Image Styling */
-.new-section img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
 /* Hover Video Styling */
 .hover-video {
   position: absolute;
@@ -409,4 +344,132 @@ body.scrolled {
   z-index: 3;
   display: none;
   transform: rotate(0deg);
+}
+
+/* Category Popup Styling */
+.category-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 3000;
+}
+.category-popup .popup-content {
+  background: rgba(34, 34, 34, 0.95);
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  text-align: left;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  pointer-events: auto;
+  animation: popupFade 0.3s ease-in-out;
+}
+.category-popup .popup-content iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+}
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Overlay for Darkening the Background (only website background) */
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+}
+
+/* Chat Popup Styles */
+.chat-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4000;
+  width: 90%;
+  max-width: 800px;
+  background: #222;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.chat-popup-content {
+  padding: 30px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.chat-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+.chat-close:hover {
+  color: red;
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

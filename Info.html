@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Bulletin Board</title>
+    <link rel="stylesheet" href="CSS_FILES/infocss.css" />
+    <script defer src="JS_FILES/infojs.js"></script>
+  </head>
+  <body>
+    <!-- Loading Screen for Page Transitions -->
+    <div id="loading-screen" class="loading-screen" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Sidebar (Taskbar) -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <div class="top-icon">
+          <img src="images/image.png" alt="Top Icon" />
+        </div>
+        <span class="brand-text">TECHNO HUB</span>
+      </div>
+      <ul>
+        <li class="nav-item home">
+          <a href="index.html">
+            <img src="images/home.png" alt="Home" aria-label="Home" />
+          </a>
+        </li>
+        <li class="nav-item search">
+          <a href="info.html">
+            <img src="images/info.png" alt="Info" aria-label="Info" />
+          </a>
+        </li>
+        <li class="nav-item news">
+          <a href="aboutus.html">
+            <img src="images/news.png" alt="News" aria-label="News" />
+          </a>
+        </li>
+        <li class="nav-item reflection">
+          <img src="images/reflection.png" alt="Reflection" aria-label="Reflection" />
+        </li>
+        <li class="nav-item people">
+          <a href="about.html">
+            <img src="images/people.png" alt="People" aria-label="People" />
+          </a>
+        </li>
+      </ul>
+      <div class="footer-text">
+        <p>NSCI 110</p>
+      </div>
+    </nav>
+
+    <!-- Main Content (Tech Bulletin Content) -->
+    <div class="wrapper" style="margin-top: 60px;">
+      <header>
+        <h1>Tech Bulletin</h1>
+        <p>Your hub for the latest in technology.</p>
+      </header>
+      <main>
+        <div class="board">
+          <div class="post-card" onclick="openPopup('popup1')">
+            <h2>Latest Innovation</h2>
+            <p>Discover transformative AI tools.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup2')">
+            <h2>Tech Tip</h2>
+            <p>Boost productivity with these apps.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup3')">
+            <h2>Upcoming Event</h2>
+            <p>Join our blockchain webinar!</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup4')">
+            <h2>Featured Article</h2>
+            <p>Read insights on cybersecurity trends.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup5')">
+            <h2>Gadget Review</h2>
+            <p>Explore the latest foldable smartphones.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup6')">
+            <h2>Dev Resources</h2>
+            <p>Access free developer tools and guides.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup7')">
+            <h2>Community Spotlight</h2>
+            <p>Discover inspiring startups in tech.</p>
+          </div>
+          <div class="post-card" onclick="openPopup('popup8')">
+            <h2>Tech Trends</h2>
+            <p>Stay updated on emerging technologies.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Popup Modals -->
+    <div id="popup1" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup1')">&times;</span>
+        <h2>Latest Innovation</h2>
+        <p>Explore AI tools transforming industries like healthcare and finance.</p>
+      </div>
+    </div>
+    <div id="popup2" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup2')">&times;</span>
+        <h2>Tech Tip</h2>
+        <p>Maximize efficiency with productivity tools like Notion and Trello.</p>
+      </div>
+    </div>
+    <div id="popup3" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup3')">&times;</span>
+        <h2>Upcoming Event</h2>
+        <p>Join our webinar on blockchain and its real-world applications.</p>
+      </div>
+    </div>
+    <div id="popup4" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup4')">&times;</span>
+        <h2>Featured Article</h2>
+        <p>Learn about the latest cybersecurity trends and best practices.</p>
+      </div>
+    </div>
+    <div id="popup5" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup5')">&times;</span>
+        <h2>Gadget Review</h2>
+        <p>Check out our review of cutting-edge foldable smartphone technology.</p>
+      </div>
+    </div>
+    <div id="popup6" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup6')">&times;</span>
+        <h2>Dev Resources</h2>
+        <p>Access free tools, templates, and guides to enhance your coding skills.</p>
+      </div>
+    </div>
+    <div id="popup7" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup7')">&times;</span>
+        <h2>Community Spotlight</h2>
+        <p>Meet inspiring startups innovating the tech landscape.</p>
+      </div>
+    </div>
+    <div id="popup8" class="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('popup8')">&times;</span>
+        <h2>Tech Trends</h2>
+        <p>Discover the latest emerging technologies shaping the future.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Tech Bulletin. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Removed duplicate script reference -->
+  </body>
+</html>

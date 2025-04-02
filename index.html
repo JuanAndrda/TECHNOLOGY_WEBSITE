@@ -3,112 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Riding</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Baloo&display=swap"
-      rel="stylesheet"
-    />
+    <title>Techno Hub</title>
+    <link rel="stylesheet" href="CSS_FILES/styles.css" />
+    <script defer src="JS_FILES/script.js"></script>
   </head>
   <body>
-    <!-- Horizontal Taskbar (Sidebar) -->
+    <!-- Loading Screen for Page Transitions -->
+    <div id="loading-screen" class="loading-screen" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Sidebar (Taskbar) -->
     <nav class="sidebar">
-      <div class="top-icon">
-        <img src="image.png" alt="Top Icon" />
+      <div class="sidebar-header">
+        <div class="top-icon">
+          <img src="images/image.png" alt="Top Icon" />
+        </div>
+        <span class="brand-text">TECHNO HUB</span>
       </div>
       <ul>
         <li class="nav-item home">
-          <img src="home.png" alt="Home" aria-label="Home" />
+          <a href="index.html">
+            <img src="images/home.png" alt="Home" aria-label="Home" />
+          </a>
         </li>
         <li class="nav-item search">
-          <img src="info.png" alt="Search" aria-label="Search" />
+          <a href="info.html">
+            <img src="images/info.png" alt="Info" aria-label="Info" />
+          </a>
         </li>
         <li class="nav-item news">
-          <img src="news.png" alt="News" aria-label="News" />
+          <a href="aboutus.html">
+            <img src="images/news.png" alt="News" aria-label="News" />
+          </a>
         </li>
         <li class="nav-item reflection">
-          <img src="reflection.png" alt="Reflection" aria-label="Reflection" />
+          <img src="images/reflection.png" alt="Reflection" aria-label="Reflection" />
         </li>
         <li class="nav-item people">
-          <img src="people.png" alt="People" aria-label="People" />
+          <a href="about.html">
+            <img src="images/people.png" alt="People" aria-label="People" />
+          </a>
         </li>
       </ul>
       <div class="footer-text">
-        <p>NCSI 101</p>
+        <p>NSCI 110</p>
       </div>
     </nav>
 
-    <!-- Wrapper for inner content -->
+    <!-- Content Wrapper -->
     <div class="wrapper">
-      <!-- Container for main content -->
       <div class="container">
-        <!-- Main Content -->
         <main class="content">
           <!-- Photo Collage Layout -->
           <div class="collage animate-scroll">
             <!-- Top Row -->
             <div class="collage-row top">
-              <!-- First Collage Item: City -->
               <div class="grid-item">
-                <img src="City.jpg" alt="Smart Scooter on the Move" />
+                <img src="images/City.jpg" alt="Cityscape illustration representing urban technology" />
                 <div class="overlay lower-left-noBg">
                   WELCOME
-                  <div class="subtitle">
-                    Experience the future of Technology
-                  </div>
+                  <div class="subtitle">Experience the future of Technology</div>
                 </div>
-                <video class="hover-video" muted loop preload="auto" src="City.mp4"></video>
+                <video class="hover-video" muted loop preload="auto" src="images/City.mp4"></video>
               </div>
-              <!-- Second Collage Item: Coding -->
               <div class="grid-item">
-                <img src="coding ❤️ an AI.jpg" alt="Smart App Feature Highlight" />
-                <div class="overlay lower-left-large">
-                  App Integration
-                </div>
-                <video class="hover-video" muted loop preload="auto" src="coding.mp4"></video>
+                <img src="images/coding ❤️ an AI.jpg" alt="Coding and AI integration illustration" />
+                <div class="overlay lower-left-large">App Integration</div>
+                <video class="hover-video" muted loop preload="auto" src="images/coding.mp4"></video>
               </div>
             </div>
             <!-- Bottom Row -->
             <div class="collage-row bottom">
-              <!-- First Grid Item: Manufacturing -->
               <div class="grid-item">
-                <img src="menufacturing.jpg" alt="Innovative Lights" />
-                <div class="overlay middle-bottom-overlay">
-                  Innovative Lights
-                </div>
-                <video class="hover-video" muted loop preload="auto" src="menufacturing.mp4"></video>
+                <img src="images/menufacturing.jpg" alt="Modern manufacturing technology" />
+                <div class="overlay middle-bottom-overlay">Innovative Lights</div>
+                <video class="hover-video" muted loop preload="auto" src="images/menufacturing.mp4"></video>
               </div>
-              <!-- Second Grid Item: Long Battery Life -->
               <div class="grid-item adjust-up">
-                <img src="cp.png" alt="Long Battery Life" />
-                <div class="overlay upper-middle-overlay">
-                  Long Battery Life
-                </div>
-                <video class="hover-video" muted loop preload="auto" src="cp.mp4"></video>
+                <img src="images/cp.png" alt="Long Battery Life device" />
+                <div class="overlay upper-middle-overlay">Long Battery Life</div>
+                <video class="hover-video" muted loop preload="auto" src="images/cp.mp4"></video>
               </div>
-              <!-- Third Grid Item: Charging -->
               <div class="grid-item">
-                <img src="Midjourney knolling.jpg" alt="Scooter Charging" />
-                <div class="overlay upper-middle-overlay">
-                  Fast Charging
-                </div>
+                <img src="images/Midjourney knolling.jpg" alt="Fast Charging technology" />
+                <div class="overlay upper-middle-overlay">Fast Charging</div>
               </div>
             </div>
           </div>
 
-          <!-- Promotional New Section with Black Gradient Background -->
+          <!-- Promotional New Section -->
           <div class="new-section animate-scroll">
             <div class="new-section-content">
               <h2>OUR TECHNOLOGY INFORMATION WEBSITE</h2>
               <p>
-                Discover the creative WEBSITE FULL OF BULLSHIT AND FALSE INFO.
-                takan nako mag iskwela pero sige lang gani
+                Welcome to Techno Hub—a simple space where you can easily dive into the world of technology. Here, you'll find clear guides on key tech concepts, the latest news and updates, published articles, and thoughtful opinions on what the future holds. Our goal is to keep everything straightforward and accessible, ensuring you feel right at home as you explore, learn, and stay informed about the tech that shapes our world.
               </p>
-              <a href="#" class="btn">MORE DETAILS</a>
+              <button class="btn" id="more-details-btn">MORE DETAILS</button>
             </div>
-            <!-- Updated Categories Container: aligned at the bottom -->
+            <!-- New Categories Container -->
             <div class="new-section-categories">
-              <div class="category">
+              <div class="category" id="infoCategory">
                 <h3>Info Boards</h3>
                 <p>Key technology concepts, explanations, or guides</p>
               </div>
@@ -120,7 +115,7 @@
                 <h3>Reflection</h3>
                 <p>Opinion pieces, analysis, and future predictions</p>
               </div>
-              <div class="category">
+              <div class="category" id="aboutCategory">
                 <h3>About Us</h3>
                 <p>About the creators</p>
               </div>
@@ -130,7 +125,54 @@
       </div>
     </div>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <!-- Category Popup for Info Boards Overview -->
+    <div id="category-popup-info" class="category-popup">
+      <div class="popup-content">
+        <iframe src="info.html" title="Info Boards Overview"></iframe>
+      </div>
+    </div>
+
+    <!-- Category Popup for About Us Overview -->
+    <div id="category-popup-about" class="category-popup">
+      <div class="popup-content">
+        <iframe src="about.html" title="About Us Overview"></iframe>
+      </div>
+    </div>
+
+    <!-- Chat Popup for More Details -->
+    <div id="chatPopup" class="chat-popup" style="display: none;">
+      <div class="chat-popup-content">
+        <div class="chat-header">
+          <h3>More Details</h3>
+          <button id="close-chat-btn" class="chat-close">&times;</button>
+        </div>
+        <div class="chat-body">
+          <p>
+            Welcome to our tech website, where we believe in keeping things simple and clear. Our goal is to share straightforward information about technology that anyone can understand, whether you’re a tech expert or just curious about the latest trends.
+          </p>
+          <p>
+            On our home page, you'll find a quick guide that shows you what the website is all about. It offers a simple tour of our sections so you can easily see where to find what you need. We highlight key areas like Info Boards, Recent Happenings, and Reflection with brief explanations of each. This helps you quickly understand how to navigate our content and get the information you want.
+          </p>
+          <p>
+            In our Info Boards, we break down key tech ideas into easy-to-read guides. We focus on explaining the basics and providing step-by-step instructions that make complex topics more understandable.
+          </p>
+          <p>
+            Our Recent Happenings section keeps you updated with the latest news, updates, and articles. Here, you’ll find current tech events and important changes in the industry that affect everyday users and enthusiasts alike.
+          </p>
+          <p>
+            In the Reflection area, we share honest opinions and thoughts about where technology is headed. This section is all about looking ahead, discussing future trends, and exploring what the coming years might bring.
+          </p>
+          <p>
+            Finally, our About Us page tells you who we are and why we started this website. We are a group of people passionate about technology, committed to sharing what we know in a clear and friendly way. We hope that by explaining tech topics in a simple manner, we can help everyone feel more confident and informed.
+          </p>
+          <p>
+            Thank you for visiting our site. Enjoy exploring, learning, and experiencing the world of technology with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay for Darkening the Website Background -->
+    <div id="overlay" class="overlay-bg" style="display: none;"></div>
   </body>
 </html>
