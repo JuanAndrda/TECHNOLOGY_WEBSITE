@@ -207,7 +207,7 @@ body {
   border-radius: 15px;
   overflow: hidden;
   padding: 80px;
-  min-height: 650px;
+  min-height: 630px;
   background: linear-gradient(90deg, #1a1a1a, #333333);
   color: #ffffff;
 }
