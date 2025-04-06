@@ -1,25 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ------------------------
-  // Loading Screen for Page Transitions
-  // ------------------------
+  // ---------------------
+  // Loading Screen Functionality
+  // ---------------------
   const loadingScreen = document.getElementById("loading-screen");
-  // Apply click event to all sidebar links for page transitioning
   const navLinks = document.querySelectorAll(".sidebar a");
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
-      // Show loading screen
-      loadingScreen.style.display = "flex";
-      // Use a slight delay then navigate to the clicked URL
+      if (loadingScreen) {
+        loadingScreen.style.display = "flex";
+      }
       setTimeout(() => {
         window.location.href = this.href;
-      }, 500); // Adjust delay (milliseconds) as needed
+      }, 500);
     });
   });
-  
-  // ------------------------
+
+  // ---------------------
   // Hover Video Functionality for Collage Items
-  // ------------------------
+  // ---------------------
   const gridItems = document.querySelectorAll(".collage .grid-item");
   gridItems.forEach((item) => {
     const video = item.querySelector(".hover-video");
@@ -35,22 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-  
-  // ------------------------
-  // Sidebar Hide on Scroll
-  // ------------------------
+
+  // ---------------------
+  // Sidebar Hide on Scroll Animation
+  // ---------------------
   let scrollTimeout;
+  const sidebar = document.querySelector(".sidebar");
   window.addEventListener("scroll", function () {
-    document.querySelector(".sidebar").classList.add("hide");
+    if (sidebar) {
+      sidebar.classList.add("hide");
+    }
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-      document.querySelector(".sidebar").classList.remove("hide");
+      if (sidebar) {
+        sidebar.classList.remove("hide");
+      }
     }, 300);
   });
-  
-  // ------------------------
+
+  // ---------------------
   // Intersection Observer for Animate-Scroll Elements
-  // ------------------------
+  // ---------------------
   const animateElements = document.querySelectorAll(".animate-scroll");
   const thresholds = Array.from({ length: 11 }, (_, i) => i / 10);
   const observerOptions = { threshold: thresholds };
@@ -62,35 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
   animateElements.forEach((el) => observer.observe(el));
-  
-  // ------------------------
-  // Category Popups and Chat Popup Functionality (Click to Preview)
-  // ------------------------
-  
-  // Cache new section categories container.
-  const newSectionCategories = document.querySelector(".new-section-categories");
-  
-  // Helper function to update popup position.
-  function updatePopupPosition(popupContent) {
-    const containerRect = newSectionCategories.getBoundingClientRect();
-    const popupWidth = popupContent.offsetWidth;
-    const popupHeight = popupContent.offsetHeight;
-    popupContent.style.top = containerRect.top - popupHeight - 10 + "px";
-    popupContent.style.left =
-      containerRect.left + containerRect.width / 2 - popupWidth / 2 + "px";
-    popupContent.style.transform = "";
-  }
-  
-  // Helper function to hide overlay if no popups are visible.
-  function checkOverlayVisibility() {
-    const infoDisplay = infoPopup ? infoPopup.style.display : "none";
-    const aboutDisplay = aboutPopup ? aboutPopup.style.display : "none";
-    const chatDisplay = chatPopup ? chatPopup.style.display : "none";
-    if (infoDisplay !== "block" && aboutDisplay !== "block" && chatDisplay !== "block") {
-      document.getElementById("overlay").style.display = "none";
-    }
-  }
-  
+
+  // ---------------------
+  // Category Popups and Chat Popup Functionality
+  // ---------------------
   // Info Boards Popup
   const infoCategory = document.getElementById("infoCategory");
   const infoPopup = document.getElementById("category-popup-info");
@@ -99,19 +78,18 @@ document.addEventListener("DOMContentLoaded", function () {
       e.stopPropagation();
       if (infoPopup.style.display === "block") {
         infoPopup.style.display = "none";
-        checkOverlayVisibility();
+        document.getElementById("overlay").style.display = "none";
       } else {
+        const aboutPopup = document.getElementById("category-popup-about");
         if (aboutPopup && aboutPopup.style.display === "block") {
           aboutPopup.style.display = "none";
         }
         document.getElementById("overlay").style.display = "block";
         infoPopup.style.display = "block";
-        const popupContent = infoPopup.querySelector(".popup-content");
-        updatePopupPosition(popupContent);
       }
     });
   }
-  
+
   // About Us Popup
   const aboutCategory = document.getElementById("aboutCategory");
   const aboutPopup = document.getElementById("category-popup-about");
@@ -120,19 +98,17 @@ document.addEventListener("DOMContentLoaded", function () {
       e.stopPropagation();
       if (aboutPopup.style.display === "block") {
         aboutPopup.style.display = "none";
-        checkOverlayVisibility();
+        document.getElementById("overlay").style.display = "none";
       } else {
         if (infoPopup && infoPopup.style.display === "block") {
           infoPopup.style.display = "none";
         }
         document.getElementById("overlay").style.display = "block";
         aboutPopup.style.display = "block";
-        const popupContent = aboutPopup.querySelector(".popup-content");
-        updatePopupPosition(popupContent);
       }
     });
   }
-  
+
   // Chat Popup for MORE DETAILS
   const moreDetailsBtn = document.getElementById("more-details-btn");
   const chatPopup = document.getElementById("chatPopup");
@@ -148,11 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (closeChatBtn) {
     closeChatBtn.addEventListener("click", function () {
       chatPopup.style.display = "none";
-      checkOverlayVisibility();
+      document.getElementById("overlay").style.display = "none";
     });
   }
-  
-  // Hide popups when clicking on overlay or outside.
+
+  // Hide popups when clicking on the overlay
   const overlayEl = document.getElementById("overlay");
   overlayEl.addEventListener("click", function () {
     if (infoPopup) infoPopup.style.display = "none";
@@ -160,28 +136,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (chatPopup) chatPopup.style.display = "none";
     overlayEl.style.display = "none";
   });
-  
-  // Prevent clicks inside popups from propagating to overlay.
-  const popups = document.querySelectorAll(".category-popup, .chat-popup");
-  popups.forEach((popup) => {
-    popup.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  });
 });
-let scrollTimeout;
-  const sidebar = document.querySelector(".sidebar");
-  window.addEventListener("scroll", function () {
-    if (sidebar) {
-      // Add the 'hide' class immediately when scrolling starts
-      sidebar.classList.add("hide");
-    }
-    // Clear any previous timeout to detect when scrolling stops
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      if (sidebar) {
-        // Remove the 'hide' class when scrolling stops
-        sidebar.classList.remove("hide");
-      }
-    }, 300); // Adjust the timeout delay (ms) as needed
-  });
