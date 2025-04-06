@@ -160,6 +160,18 @@ body {
   object-position: bottom;
 }
 
+/* Hover Video – initially hidden and covers the grid item */
+.hover-video {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 10;
+}
+
 /* Overlay for elements within grid items */
 .overlay {
   position: absolute;
@@ -304,15 +316,13 @@ body {
   pointer-events: none;
   z-index: 3000;
 }
-
-/* Center the popup-content and increase its size */
 .category-popup .popup-content {
   background: rgba(34, 34, 34, 0.95);
   color: #fff;
   padding: 30px;
   border-radius: 15px;
   width: 90%;
-  max-width: 1000px; /* Increased size */
+  max-width: 1000px;
   text-align: left;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -322,16 +332,12 @@ body {
   pointer-events: auto;
   animation: popupFade 0.3s ease-in-out;
 }
-
-/* Adjust the iframe size inside the popup */
 .category-popup .popup-content iframe {
   width: 100%;
-  height: 600px;  /* Increased from 500px */
+  height: 600px;
   border: none;
   border-radius: 10px;
 }
-
-/* Move the close button further to the right */
 .category-popup .close-popup {
   position: absolute;
   top: 10px;
@@ -344,7 +350,6 @@ body {
 .category-popup .close-popup:hover {
   color: red;
 }
-
 @keyframes popupFade {
   from {
     opacity: 0;
@@ -408,11 +413,10 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);  /* Darkens the background */
-  z-index: 2500;  /* Below the popups (3000/4000) but above the main content */
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2500;
   display: none;
 }
-
 
 /* Loading Screen */
 .loading-screen {

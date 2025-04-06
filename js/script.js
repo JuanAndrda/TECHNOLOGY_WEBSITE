@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (video) {
       item.addEventListener("mouseenter", function () {
         video.style.display = "block";
-        video.play();
+        video.play().catch(e => console.log("Video play error:", e));
       });
       item.addEventListener("mouseleave", function () {
         video.pause();
