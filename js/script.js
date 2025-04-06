@@ -169,3 +169,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+let scrollTimeout;
+  const sidebar = document.querySelector(".sidebar");
+  window.addEventListener("scroll", function () {
+    if (sidebar) {
+      // Add the 'hide' class immediately when scrolling starts
+      sidebar.classList.add("hide");
+    }
+    // Clear any previous timeout to detect when scrolling stops
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (sidebar) {
+        // Remove the 'hide' class when scrolling stops
+        sidebar.classList.remove("hide");
+      }
+    }, 300); // Adjust the timeout delay (ms) as needed
+  });

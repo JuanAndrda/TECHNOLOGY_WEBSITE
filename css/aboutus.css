@@ -13,134 +13,112 @@ html,
 body {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-/*
-  Body Background: Two-layer gradient background:
-  - The top layer is a semi-transparent horizontal gradient.
-  - The bottom layer is pure black.
-  Both layers are fixed and forced to exactly fill the viewport.
-*/
+/* Body Background: Two-layer gradient */
 body {
   background: 
     linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
     #000;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 100% 100%;
-  background-attachment: fixed, fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
   color: white;
   display: flex;
   flex-direction: column;
   transition: background 0.5s ease;
 }
 
+/* Sidebar Styles */
 .sidebar {
-    position: relative; /* For absolute positioning of child elements */
-    width: 100%;
-    height: 45px;
-    background: linear-gradient(90deg, #1a1a1a, #333333);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Sidebar Header (Logo with Brand Text to its right) */
-  .sidebar-header {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidebar-header .top-icon img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    padding: 4px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar-header .top-icon img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Brand text appears to the right of the logo */
-  .sidebar-header .brand-text {
-    margin-left: 10px;
-    font-size: 16px;
-    color: white;
-    font-weight: 400;
-  }
-  
-  /* Centering the navigation icons */
-  .sidebar ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 60px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  /* Navigation Item Styling */
-  .nav-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    padding: 4px;
-  }
-  
-  .nav-item:hover {
-    background-color: rgba(204, 204, 204, 0.3);
-    box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
-    border-radius: 50%;
-  }
-  
-  .nav-item img {
-    width: 16px;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-item:hover img {
-    transform: scale(1.1);
-  }
-  
-  /* Positioning the footer text at the far right */
-  .footer-text {
-    position: absolute;
-    right: 20px;  /* Stick to the far right */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    color: white;
-    padding: 10px;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(90deg, #1a1a1a, #333333);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+.sidebar.hide {
+  transform: translateY(-100%);
+}
+.sidebar-header {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+.sidebar-header .top-icon img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+.sidebar-header .top-icon img:hover {
+  transform: scale(1.1);
+}
+.sidebar-header .brand-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+}
+.sidebar ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 60px;
+  list-style: none;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover {
+  background-color: rgba(204, 204, 204, 0.3);
+  box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
+  border-radius: 50%;
+}
+.nav-item img {
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+.nav-item:hover img {
+  transform: scale(1.1);
+}
+.footer-text {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+}
 
-/* About Us container styling */
+/* About Us Container */
 .aboutus-container {
-  margin-top: 70px; /* Enough margin to clear the fixed sidebar */
+  margin-top: 70px; /* To clear the fixed sidebar */
   padding: 50px;
   background-color: #333333;
   text-align: center;
   font-size: 18px;
 }
+
 /* Loading Screen */
 .loading-screen {
   position: fixed;
@@ -150,8 +128,8 @@ body {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 5000;
 }
 .spinner {

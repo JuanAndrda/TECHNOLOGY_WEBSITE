@@ -1,281 +1,230 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body Styling */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-    color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  /* Header Styling */
-  header {
-    text-align: center;
-    padding: 20px;
-    background: #151515;
-    color: #ffffff;
-    width: 100%;
-    border-bottom: 3px solid #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #e0e0e0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  
-  header p {
-    font-size: 1.2rem;
-    color: #a5a5a5;
-  }
-  
-  /* Board Styling */
-  .board {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background: #121212;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Post Card Styling */
-  .post-card {
-    background: linear-gradient(145deg, #202020, #2a2a2a);
-    color: #dcdcdc;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: left;
-    cursor: pointer;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .post-card h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: #ffffff;
-  }
-  
-  .post-card p {
-    font-size: 1rem;
-    color: #bbbbbb;
-  }
-  
-  .post-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(145deg, #2a2a2a, #333333);
-  }
-  
-  /* Popups */
-  .popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .popup-content {
-    background: #222;
-    color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    text-align: left;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    position: relative;
-    animation: popupFade 0.3s ease-in-out;
-  }
-  
-  .popup-content h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-  
-  .popup-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
-  
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  
-  .close:hover {
-    color: red;
-  }
-  
-  /* Keyframe Animations */
-  @keyframes popupFade {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Footer Styling */
-  footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background: #151515;
-    color: #a5a5a5;
-    width: 100%;
-    border-top: 2px solid #333;
-  }
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-  /* --- Updated Taskbar Styles (Same as Original Code) --- */
+/* Body Styling */
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
 
-  .sidebar {
-    position: relative; /* For absolute positioning of child elements */
-    width: 100%;
-    height: 45px;
-    background: linear-gradient(90deg, #1a1a1a, #333333);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Sidebar Header (Logo with Brand Text to its right) */
-  .sidebar-header {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-  }
-  
-  .sidebar-header .top-icon img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    padding: 4px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar-header .top-icon img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Brand text appears to the right of the logo */
-  .sidebar-header .brand-text {
-    margin-left: 10px;
-    font-size: 16px;
-    color: white;
-    font-weight: 400;
-  }
-  
-  /* Centering the navigation icons */
-  .sidebar ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 60px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  /* Navigation Item Styling */
-  .nav-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    padding: 4px;
-  }
-  
-  .nav-item:hover {
-    background-color: rgba(204, 204, 204, 0.3);
-    box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
-    border-radius: 50%;
-  }
-  
-  .nav-item img {
-    width: 16px;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-item:hover img {
-    transform: scale(1.1);
-  }
-  
-  /* Positioning the footer text at the far right */
-  .footer-text {
-    position: absolute;
-    right: 20px;  /* Stick to the far right */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    color: white;
-    padding: 10px;
-  }
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(90deg, #1a1a1a, #333333);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+.sidebar.hide {
+  transform: translateY(-100%);
+}
+.sidebar-header {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+.sidebar-header .top-icon img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.sidebar-header .top-icon img:hover {
+  transform: scale(1.1);
+}
+.sidebar-header .brand-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+}
+.sidebar ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 60px;
+  list-style: none;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover {
+  background-color: rgba(204, 204, 204, 0.3);
+  box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
+  border-radius: 50%;
+}
+.nav-item img {
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+.nav-item:hover img {
+  transform: scale(1.1);
+}
+.footer-text {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+}
 
-  /* Loading Screen */
+/* Board Styling */
+.wrapper {
+  margin-top: 60px;
+  width: 100%;
+}
+header {
+  text-align: center;
+  padding: 20px;
+  background: #151515;
+  color: #ffffff;
+  width: 100%;
+  border-bottom: 3px solid #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header p {
+  font-size: 1.2rem;
+  color: #a5a5a5;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #121212;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.post-card {
+  background: linear-gradient(145deg, #202020, #2a2a2a);
+  color: #dcdcdc;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.post-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+.post-card p {
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+.post-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  background: linear-gradient(145deg, #2a2a2a, #333333);
+}
+
+/* Popup Styles */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup-content {
+  background: #222;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+  position: relative;
+  animation: popupFade 0.3s ease-in-out;
+}
+.popup-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.popup-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+.close:hover {
+  color: red;
+}
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Screen */
 .loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0,0,0,0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -284,7 +233,7 @@
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(255, 255, 255, 0.3);
+  border: 5px solid rgba(255,255,255,0.3);
   border-top: 5px solid #fff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -297,6 +246,3 @@
     transform: rotate(360deg);
   }
 }
-
-  
-  

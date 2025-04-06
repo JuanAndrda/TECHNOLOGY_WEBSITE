@@ -45,6 +45,9 @@ body {
   z-index: 1000;
   transition: transform 0.3s ease;
 }
+.sidebar.hide {
+  transform: translateY(-100%);
+}
 .sidebar-header {
   position: absolute;
   left: 20px;
@@ -168,27 +171,21 @@ body {
   border-radius: 10px;
   z-index: 4;
 }
-
-/* Specific position/style adjustments (if not already defined) */
 .lower-left-noBg {
   bottom: 10px;
   left: 20px;
   font-size: 40px;
 }
-
 .lower-left-large {
   bottom: 10px;
   left: 10px;
   font-size: 25px;
 }
-
-/* Subtitle styling: keep the font size/spacing but remove boldness */
 .subtitle {
   font-size: 18px;
   margin-top: 5px;
   font-weight: normal;
 }
-
 .middle-bottom-overlay {
   bottom: 10px;
   left: 50%;
@@ -260,8 +257,6 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
-
-/* Show "Click to preview" above the category when hovering */
 .new-section-categories .category:hover::before {
   content: "Click to preview";
   position: absolute;
@@ -392,17 +387,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Overlay for Darkening the Background (only website background) */
-.overlay-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 2000;
 }
 
 /* Chat Popup Styles */
