@@ -9,15 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Baloo&display=swap"
       rel="stylesheet"
     />
-    <script defer src="js/aboutus.js"></script>
   </head>
   <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen" style="display: none;">
-      <div class="spinner"></div>
-    </div>
-
-    <!-- Sidebar (Taskbar) -->
     <nav class="sidebar">
       <div class="sidebar-header">
         <div class="top-icon">
@@ -42,7 +35,11 @@
           </a>
         </li>
         <li class="nav-item reflection">
-          <img src="images/reflection.png" alt="Reflection" aria-label="Reflection" />
+          <img
+            src="images/reflection.png"
+            alt="Reflection"
+            aria-label="Reflection"
+          />
         </li>
         <li class="nav-item people">
           <a href="about.html">
@@ -55,18 +52,93 @@
       </div>
     </nav>
 
-    <!-- About Us Main Content -->
     <div class="aboutus-container">
-      <h2>Welcome to our website!</h2>
+      <h1>WELCOME TO OUR WEBSITE!</h1>
       <p>
-        This website was made by the 1st year Bachelor of Science in Information Technology
-        students of West Visayas State University (S.Y. 2024-2025)
-        namely, Juan Rashley Andrada, Aecielle Cervantes, Christopher Gian Fernandez, Winbealle Baylon,
-        Roland Shem Alera, Juan Carlos Moje, Ryzel John De Guia, Sven Catalan, Gleih Cen Sayno, &amp; Lianne Dane Yasa.
+        -----------------------------------------------------------------------------------------------------------------------------------------
       </p>
       <p>
-        This website aims to show the evolution of technology and its uses in today's time.
+        <strong>
+          Made by the 1st year Bachelor of Science in Information Technology
+          students of West Visayas State University (S.Y. 2024-2025) namely:
+        </strong>
+      </p>
+
+      <!-- Team Slider Start -->
+      <div class="team-slider-container">
+        <button class="slider-btn prev">&lt;</button>
+        <div class="team-slider">
+          <div class="slider-wrapper">
+            <div class="slider-item">
+              <img src="images/alera.jpg" alt="Nameplacer" />
+              <div class="slider-caption">Alera, Roland Shem</div>
+            </div>
+            <div class="slider-item">
+              <img src="images/juan.jpg" alt="Nameplacer" />
+              <div class="slider-caption">Andrada, Juan Rashley</div>
+            </div>
+            <div class="slider-item">
+              <img src="images/baylon.jpg" alt="Nameplacer" />
+              <div class="slider-caption">Baylon, Winbealle</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">Catalan, Sven</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">Cervantes, Aecielle</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">De Guia, Ryzel John</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">Fernandez, Christopher Gian</div>
+            </div>
+            <div class="slider-item">
+              <img src="images/moje.jpg" alt="Nameplacer" />
+              <div class="slider-caption">Moje, Juan Carlos</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">Sayno, Gleih Cen</div>
+            </div>
+            <div class="slider-item">
+              <img src="https://via.placeholder.com/150" alt="Nameplacer" />
+              <div class="slider-caption">Yasa, Lianne Dane</div>
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn next">&gt;</button>
+      </div>
+      <!-- Team Slider End -->
+
+      <p>
+        -----------------------------------------------------------------------------------------------------------------------------------------
+      </p>
+      <p>
+        We’re a small but passionate team of tech lovers who enjoy exploring
+        the digital world and sharing what we learn along the way.
+      </p>
+      <p>
+        Whether it's new gadgets, useful software, simple how-to guides, or
+        interesting trends, we aim to keep things clear, helpful, and easy to
+        follow.
+      </p>
+      <p>
+        Our goal isn’t to overwhelm you with jargon or hype—just to offer honest,
+        straightforward content that helps you understand and enjoy technology a
+        little more every day.
+      </p>
+      <p>
+        Thanks for stopping by, and we hope you find something here that sparks
+        your interest!
       </p>
     </div>
+
+    <!-- External JavaScript -->
+    <script src="js/aboutus.js"></script>
   </body>
 </html>
