@@ -488,3 +488,28 @@ body {
     margin: 5px 0;
   }
 }
+
+.robot-image-container {
+  max-width: 250px;
+  margin-left: 20px;
+  margin-right: 70px;
+  margin-bottom: 50px;
+}
+
+.robot-logo {
+  width: 100%;
+  height: auto;
+  border-radius: 150px; /* Optional */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Horizontal Divider above Categories - Lowered further by increasing top margin */
+.new-section-divider {
+  height: 2px;               /* Define the thickness of the line */
+  background-color: #fff;    /* White color for the line */
+  border: none;              /* Remove any default border */
+  border-radius: 50px;       /* High value for fully rounded endpoints */
+  margin-top: 140px;          /* Adjust top margin to lower the line */
+  margin-bottom: 20px;       /* Bottom margin spacing */
+}
+
