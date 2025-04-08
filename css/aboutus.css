@@ -8,14 +8,13 @@
   font-family: 'Quicksand', 'Baloo', sans-serif;
 }
 
-/* Ensure html and body fill the whole screen */
 html,
 body {
   width: 100%;
-  height: 100%;
+  height: 1000px;
+  background-color: #121212;
 }
 
-/* Technology-inspired Dark Background for the page */
 body {
   background: linear-gradient(45deg, #121212, #1c1c1c, #121212);
   background-size: cover;
@@ -107,18 +106,27 @@ body {
   padding: 10px;
 }
 
-/* About Us Content Container with a Horizontal Blackish Gradient */
+/* About Us Content Container */
 .aboutus-container {
-  padding: 30px 40px; 
-  /* Adjust top-bottom and left-right padding as preferred */
+  padding: 50px 60px;
   background: linear-gradient(90deg, #222222, #2b2b2b);
   border-radius: 20px;
-  /* Added margin to separate it from the top bar */
   margin: 80px auto 20px;
   text-align: center;
-  line-height: 36px;
+  line-height: 1.8;
   font-size: 20px;
   width: 90%;
+  min-height: 600px;
+}
+
+/* Separator Line */
+.separator {
+  width: 90%;
+  max-width: 90%;
+  height: 3px;
+  background-color: white;
+  margin: 20px auto;
+  border-radius: 5px;
 }
 
 /* ------ Slider Styles ------ */
@@ -126,28 +134,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
-  width: 80%;
-}
-.team-slider {
-  width: 100%;
-  overflow: hidden;
+  margin: 30px auto;
+  width: 90%;
   position: relative;
 }
 
-/* Use the flex gap property to create space between slides */
-.slider-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px; /* Adjust this gap value as desired */
+.team-slider {
+  overflow: hidden;
 }
 
-/*
-  Calculate each slider item's width so that 5 items (plus 4 gaps of 10px each)
-  fill the visible area.
-*/
+.slider-wrapper {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  padding: 20px 0;
+}
+
+/* Approximately 3 items visible */
 .slider-item {
-  flex: 0 0 calc((100% - 40px) / 5);
+  flex: 0 0 30%;
   text-align: center;
   font-size: 18px;
   padding: 10px;
@@ -155,16 +160,24 @@ body {
   background: #444;
   color: white;
   border-radius: 10px;
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.slider-item.active {
+  opacity: 1;
+  transform: scale(1);
+  border: 2px solid #fff;
+}
+
+/* Force uniform image dimensions */
 .slider-item img {
-  /* Fixed size for all slider images */
   width: 250px;
   height: 250px;
   object-fit: cover;
-  display: block;
-  margin: 0 auto 8px;
-  border-radius: 10%;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
 
 .slider-caption {
@@ -173,14 +186,53 @@ body {
 
 /* Slider Button Styles */
 .slider-btn {
-  background: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  font-size: 24px;
-  cursor: pointer;
   color: white;
+  font-size: 28px;
   padding: 10px;
-  transition: color 0.3s ease;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+.slider-btn.prev {
+  left: 10px;
+}
+.slider-btn.next {
+  right: 10px;
 }
 .slider-btn:hover {
-  color: #ddd;
+  background: rgba(255, 255, 255, 0.5);
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
