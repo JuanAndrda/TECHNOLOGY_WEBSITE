@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Slider Functionality ---
   const slider = document.querySelector(".slider");
   const slideWidth = 500; // Must match the CSS .slide width
-  const cloneCount = 3; // Number of slides to clone at each end
+  const cloneCount = 3;   // Number of slides to clone at each end
 
   // Get original slides (should be 6)
   const originalSlides = Array.from(slider.children);
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Set initial transform without animation, then enable transition
   slider.style.transition = "none";
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  slider.getBoundingClientRect(); // Force reflow
+  slider.getBoundingClientRect(); // force reflow
   slider.style.transition = "transform 0.5s ease";
 
   // Function to update active slide (center of the three visible)
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const infoText = detailBtn.getAttribute("data-detail") || "Details coming soon.";
       document.getElementById("popchat-text").innerHTML = infoText;
-      popchatContainer.style.display = "flex"; // Show modal using flex for centering
+      popchatContainer.style.display = "flex"; // show modal (flex for centering)
     });
   });
 
@@ -143,11 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Apply preventWidow function to slider text elements
-  document.querySelectorAll(".slide-info, .slide-definition").forEach((elem) => {
+  // Apply preventWidow to slider text elements
+  document.querySelectorAll(".slide-info, .slide-definition").forEach(elem => {
     preventWidow(elem);
   });
-});   
+});
+
 const loadingScreen = document.getElementById("loading-screen");
 const navLinks = document.querySelectorAll(".sidebar a");
 navLinks.forEach((link) => {
