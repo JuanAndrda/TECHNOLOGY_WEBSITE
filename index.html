@@ -43,11 +43,13 @@
           </a>
         </li>
         <li class="nav-item reflection">
-          <img
-            src="images/reflection.png"
-            alt="Reflection"
-            aria-label="Reflection"
-          />
+          <a href="reflection.html">
+            <img
+              src="images/reflection.png"
+              alt="Reflection"
+              aria-label="Reflection"
+            />
+          </a>
         </li>
         <li class="nav-item people">
           <a href="about.html">
@@ -175,11 +177,7 @@
               </div>
               <!-- Robot image container on the right side -->
               <div class="robot-image-container">
-                <img
-                  src="images/robot.png"
-                  alt="Robot Logo"
-                  class="robot-logo"
-                />
+                <img src="images/robot.png" alt="Robot Logo" class="robot-logo" />
               </div>
             </div>
 
@@ -192,11 +190,11 @@
                 <h3>Info Boards</h3>
                 <p>Key technology concepts, explanations, or guides</p>
               </div>
-              <div class="category">
+              <div class="category" id="recentCategory">
                 <h3>Recent Happenings</h3>
                 <p>News, updates, published articles and latest tech events</p>
               </div>
-              <div class="category">
+              <div class="category" id="reflectionCategory">
                 <h3>Reflection</h3>
                 <p>Opinion pieces, analysis, and future predictions</p>
               </div>
@@ -234,6 +232,30 @@
       </div>
     </div>
 
+    <!-- Category Popup for Recent Happenings Overview with Close Button -->
+    <div id="category-popup-recent" class="category-popup">
+      <div class="popup-content">
+        <span
+          class="close-popup"
+          onclick="document.getElementById('category-popup-recent').style.display='none'; document.getElementById('overlay').style.display='none';"
+          >&times;</span
+        >
+        <iframe src="recent.html" title="Recent Happenings Overview"></iframe>
+      </div>
+    </div>
+
+    <!-- Category Popup for Reflection Overview with Close Button -->
+    <div id="category-popup-reflection" class="category-popup">
+      <div class="popup-content">
+        <span
+          class="close-popup"
+          onclick="document.getElementById('category-popup-reflection').style.display='none'; document.getElementById('overlay').style.display='none';"
+          >&times;</span
+        >
+        <iframe src="reflection.html" title="Reflection Overview"></iframe>
+      </div>
+    </div>
+
     <!-- Chat Popup for More Details with Improved Typography -->
     <div id="chatPopup" class="chat-popup" style="display: none">
       <div class="chat-popup-content">
@@ -249,44 +271,37 @@
             effectively, whether you are an experienced professional or a
             newcomer exploring the world of technology.
           </p>
-
           <p>
             On our homepage, you will find an overview of the website’s main
             sections, including Info Boards, Recent Happenings, and Reflection.
             These sections are designed to help you navigate the site with ease
             and access valuable insights efficiently.
           </p>
-
           <p>
             Within the Info Boards, we simplify complex technological concepts
             through clear and easy-to-follow guides. Our step-by-step
             explanations ensure that even advanced topics become accessible and
             understandable.
           </p>
-
           <p>
             The Recent Happenings section provides you with the latest updates
             on technological innovations and industry events, keeping you
             informed of significant developments in the tech landscape.
           </p>
-
           <p>
             In the Reflection section, we offer thoughtful perspectives and
             future-oriented discussions, giving you insight into emerging trends
             and what lies ahead in the world of technology.
           </p>
-
           <p>
-            Lastly, our About Us page introduces you to the dedicated team
-            behind this platform. We are passionate about sharing knowledge and
+            Lastly, our About Us page introduces you to the dedicated team behind
+            this platform. We are passionate about sharing knowledge and
             delivering content in a manner that is professional, friendly, and
             easy to comprehend.
           </p>
-
           <p>
-            Thank you for visiting our website. We hope our content enhances
-            your understanding of technology and inspires you to explore
-            further.
+            Thank you for visiting our website. We hope our content enhances your
+            understanding of technology and inspires you to explore further.
           </p>
         </div>
       </div>

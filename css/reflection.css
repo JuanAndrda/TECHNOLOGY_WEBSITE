@@ -1,0 +1,558 @@
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', 'Baloo', sans-serif;
+}
+
+/* Ensure html and body fill the whole screen */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Body Background: Two-layer gradient background where:
+  - The top layer is a semi‑transparent horizontal gradient.
+  - The bottom layer is pure black.
+  Both layers are fixed and forced to exactly fill the viewport.
+*/
+body {
+  background: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+    #000;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-attachment: fixed, fixed;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s ease;
+}
+
+/* When scrolled, keeping the same background (modify if needed) */
+body.scrolled {
+  background: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+    #000;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-attachment: fixed, fixed;
+}
+
+/* Wrapper for inner content */
+.wrapper {
+  padding: 40px;
+  flex: 1;
+  margin-top: 45px; /* Prevent content from hiding behind the fixed header */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(90deg, #1a1a1a, #333333);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+.sidebar.hide {
+  transform: translateY(-100%);
+}
+.sidebar-header {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+.sidebar-header .top-icon img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.sidebar-header .top-icon img:hover {
+  transform: scale(1.1);
+}
+.sidebar-header .brand-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+}
+.sidebar ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 60px;
+  list-style: none;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover {
+  background-color: rgba(204, 204, 204, 0.3);
+  box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
+  border-radius: 50%;
+}
+.nav-item img {
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+.nav-item:hover img {
+  transform: scale(1.1);
+}
+.footer-text {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+}
+
+/* Container for Main Content (transparent) */
+.container {
+  flex: 1;
+  background: transparent;
+  border-radius: 15px;
+  padding: 20px 5px;
+}
+
+/* Main Content Area */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Animate-Scroll: Initial style for fade/slide effect */
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Collage Layout */
+.collage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+/* Top Row: Two images with unequal widths */
+.collage-row.top {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Bottom Row: Three images */
+.collage-row.bottom {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* Grid Item Styling */
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px;
+}
+.grid-item:hover {
+  transform: scale(1.03);
+}
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: transform 0.3s ease;
+}
+.grid-item:hover img {
+  transform: scale(1.05);
+}
+/* Adjust for items with the adjust-up class */
+.grid-item.adjust-up img,
+.grid-item.adjust-up .hover-video {
+  object-position: bottom;
+}
+
+/* Overlay Text for Images */
+.overlay {
+  position: absolute;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: none;
+  z-index: 4;
+}
+.center-overlay {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Overlays for Top Row */
+.lower-left-large {
+  bottom: 10px;
+  left: 10px;
+  font-size: 30px;
+  text-align: left;
+}
+.lower-left-noBg {
+  bottom: 10px;
+  left: 10px;
+  font-size: 40px;
+  text-align: left;
+  background: none;
+}
+.overlay .subtitle {
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+/* Overlays for Bottom Row */
+.middle-bottom-overlay {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.upper-middle-overlay {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* Promotional New Section with Black Gradient Background */
+.new-section {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 80px;
+  min-height: 600px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(26,26,26,0.8));
+  color: #ffffff;
+}
+
+/* Remove pseudo-element overlay */
+.new-section::before {
+  display: none;
+}
+
+.new-section-content {
+  position: relative;
+  max-width: 70%;
+  z-index: 2;
+}
+.new-section-content h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+.new-section-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.new-section-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* New Categories Container: aligned at bottom with even spacing and gap */
+.new-section-categories {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 90%;
+  max-width: 1200px;
+  gap: 20px;
+  text-align: center;
+  z-index: 2;
+}
+.new-section-categories .category {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.new-section-categories .category:hover {
+  transform: scale(1.1);
+}
+.new-section-categories .category::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff9900;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.new-section-categories .category:hover::after {
+  left: 0;
+  width: 100%;
+}
+.new-section-categories .category h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+.new-section-categories .category p {
+  font-size: 14px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+.new-section-categories .category:hover h3,
+.new-section-categories .category:hover p {
+  color: #ffffff;
+}
+
+.content {
+  margin: 100px 100px 100px 100px;
+
+}
+
+.paragraph {
+  margin-top: 10px;
+  padding-right: 100px;
+}
+
+.first-column{
+  display: flex;
+}
+
+.column {
+  flex: 1; /* Each column takes equal space */
+  padding: 10px;
+}
+
+.left-column{
+  flex: 1; /* Each column takes equal space */
+  padding: 50px 10px 10px 10px;
+}
+
+.column-container {
+  margin-top: -5px;
+  padding: 20px;
+  border: 1px solid #454545;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.column-container:hover {
+  transform: scale(1.05); /* Makes it grow by 10% */
+}
+
+.h1 {
+  margin-top: 10px;
+}
+
+.challenges-title{
+  margin-top: 60px;
+}
+
+.container {
+  position: relative;
+  padding: 20px;
+  width: 100%; /* Adjust width as needed */
+}
+
+.column-container {
+  position: relative;
+  padding-left: 80px; /* Creates space for the icon */
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 5px; /* Move the icon outside the border */
+  transform: translateY(-50%);
+  width: 70px; /* Adjust icon size */
+  height: 70px;
+  padding: 5px;
+}
+
+.divider {
+  height: 0.5px;
+  width: 99%;
+  background-color: #858585;
+  margin: 20px 0;
+}
+
+.divider1 {
+  height: 0.5px;
+  width: 88%;
+  background-color: #858585;
+  margin: 20px 0;
+}
+
+.picture-container {
+  width: 100%;
+  height: 100%;
+  background-image: url('transportation.jpg'); /* Replace with your image file */
+  background-size: cover; /* Ensures it covers the whole area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  filter: grayscale(100%);
+}
+
+.picture-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+}
+
+.challenges {
+  margin: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Ensures text appears above overlay */
+  color: white; /* Adjust color if needed */
+  font-size: 40px;
+  text-align: center;
+}
+
+.transportation {
+  margin: 50px;
+  width: 90%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 0;
+  }
+  .content {
+    padding: 10px;
+  }
+  .sidebar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    position: static;
+    width: 100%;
+  }
+  .sidebar ul {
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .collage-row.top,
+  .collage-row.bottom {
+    grid-template-columns: 1fr;
+  }
+  .new-section-content {
+    position: static;
+    margin-bottom: 20px;
+  }
+  .new-section-categories {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .new-section-categories .category {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* New Section Image Styling */
+.new-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Hover Video Styling */
+.hover-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  z-index: 3;
+  display: none;
+  transform: rotate(0deg);
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

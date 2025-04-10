@@ -81,8 +81,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("overlay").style.display = "none";
       } else {
         const aboutPopup = document.getElementById("category-popup-about");
+        const recentPopup = document.getElementById("category-popup-recent");
+        const reflectionPopup = document.getElementById("category-popup-reflection");
         if (aboutPopup && aboutPopup.style.display === "block") {
           aboutPopup.style.display = "none";
+        }
+        if (recentPopup && recentPopup.style.display === "block") {
+          recentPopup.style.display = "none";
+        }
+        if (reflectionPopup && reflectionPopup.style.display === "block") {
+          reflectionPopup.style.display = "none";
         }
         document.getElementById("overlay").style.display = "block";
         infoPopup.style.display = "block";
@@ -100,12 +108,67 @@ document.addEventListener("DOMContentLoaded", function () {
         aboutPopup.style.display = "none";
         document.getElementById("overlay").style.display = "none";
       } else {
+        const infoPopup = document.getElementById("category-popup-info");
+        const recentPopup = document.getElementById("category-popup-recent");
+        const reflectionPopup = document.getElementById("category-popup-reflection");
         if (infoPopup && infoPopup.style.display === "block") {
           infoPopup.style.display = "none";
+        }
+        if (recentPopup && recentPopup.style.display === "block") {
+          recentPopup.style.display = "none";
+        }
+        if (reflectionPopup && reflectionPopup.style.display === "block") {
+          reflectionPopup.style.display = "none";
         }
         document.getElementById("overlay").style.display = "block";
         aboutPopup.style.display = "block";
       }
+    });
+  }
+
+  // Recent Happenings Popup
+  const recentCategory = document.getElementById("recentCategory");
+  const recentPopup = document.getElementById("category-popup-recent");
+  if (recentCategory && recentPopup) {
+    recentCategory.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const infoPopup = document.getElementById("category-popup-info");
+      const aboutPopup = document.getElementById("category-popup-about");
+      const reflectionPopup = document.getElementById("category-popup-reflection");
+      if (infoPopup && infoPopup.style.display === "block") {
+        infoPopup.style.display = "none";
+      }
+      if (aboutPopup && aboutPopup.style.display === "block") {
+        aboutPopup.style.display = "none";
+      }
+      if (reflectionPopup && reflectionPopup.style.display === "block") {
+        reflectionPopup.style.display = "none";
+      }
+      document.getElementById("overlay").style.display = "block";
+      recentPopup.style.display = "block";
+    });
+  }
+
+  // Reflection Popup
+  const reflectionCategory = document.getElementById("reflectionCategory");
+  const reflectionPopup = document.getElementById("category-popup-reflection");
+  if (reflectionCategory && reflectionPopup) {
+    reflectionCategory.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const infoPopup = document.getElementById("category-popup-info");
+      const aboutPopup = document.getElementById("category-popup-about");
+      const recentPopup = document.getElementById("category-popup-recent");
+      if (infoPopup && infoPopup.style.display === "block") {
+        infoPopup.style.display = "none";
+      }
+      if (aboutPopup && aboutPopup.style.display === "block") {
+        aboutPopup.style.display = "none";
+      }
+      if (recentPopup && recentPopup.style.display === "block") {
+        recentPopup.style.display = "none";
+      }
+      document.getElementById("overlay").style.display = "block";
+      reflectionPopup.style.display = "block";
     });
   }
 
@@ -131,8 +194,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hide popups when clicking on the overlay
   const overlayEl = document.getElementById("overlay");
   overlayEl.addEventListener("click", function () {
+    const infoPopup = document.getElementById("category-popup-info");
+    const aboutPopup = document.getElementById("category-popup-about");
+    const recentPopup = document.getElementById("category-popup-recent");
+    const reflectionPopup = document.getElementById("category-popup-reflection");
     if (infoPopup) infoPopup.style.display = "none";
     if (aboutPopup) aboutPopup.style.display = "none";
+    if (recentPopup) recentPopup.style.display = "none";
+    if (reflectionPopup) reflectionPopup.style.display = "none";
     if (chatPopup) chatPopup.style.display = "none";
     overlayEl.style.display = "none";
   });
