@@ -12,16 +12,17 @@ html,
 body {
   width: 100%;
   height: auto;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   font-family: 'Poppins', 'Baloo', sans-serif;
-  background-color: #121212;
+  background-color: #000;
 }
 
 /* Background Styling */
 body {
-  background: linear-gradient(45deg, #121212, #1c1c1c, #121212);
+  background: linear-gradient(45deg, #000, #222, #000);
   background-size: cover;
   background-attachment: fixed;
-  color: white;
+  color: #fff;
 }
 
 /* Sidebar Styles */
@@ -31,7 +32,7 @@ body {
   left: 0;
   width: 100%;
   height: 45px;
-  background: linear-gradient(90deg, #1a1a1a, #333333);
+  background: linear-gradient(90deg, #000, #333);
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -59,7 +60,7 @@ body {
 .sidebar .brand-text {
   margin-left: 10px;
   font-size: 16px;
-  color: white;
+  color: #fff;
   font-weight: 400;
 }
 .sidebar ul {
@@ -80,8 +81,8 @@ body {
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover {
-  background-color: rgba(204, 204, 204, 0.3);
-  box-shadow: 0 0 8px rgba(204, 204, 204, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 }
 .nav-item img {
@@ -97,20 +98,20 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 12px;
-  color: white;
+  color: #fff;
   padding: 10px;
 }
 
-/* Main Content Container - center align all content */
+/* Main Content Container */
 .recent-container {
   width: 100%;
   min-height: 100vh;
   padding: 50px;
   position: relative;
-  text-align: center; /* Ensures entire container content is centered */
+  text-align: center;
 }
 
-/* Optional Decorative Element */
+/* Decorative Element */
 .recent-container::after {
   content: "";
   position: absolute;
@@ -125,34 +126,57 @@ body {
   z-index: -1;
 }
 
-/* Recent Text Block - centered */
+/* Recent Text Block */
 .recent-text {
   z-index: 2;
   text-align: center;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .recent-text h1 {
-  font-size: 5.5rem;
+  font-size: 4rem;
   margin-bottom: 20px;
   font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
 }
 .button-group {
   display: flex;
   gap: 20px;
   justify-content: center;
 }
-.btn {
-  padding: 10px 20px;
-  background: #ffffff;
-  color: #000;
-  text-decoration: none;
+
+/* Tech-inspired text buttons for inventions and events */
+.btn,
+.portfolio-event-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #ccc;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
 }
-.btn:hover {
-  background: #dddddd;
+.btn:hover,
+.portfolio-event-btn:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #fff;
+}
+.btn::after,
+.portfolio-event-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: #ccc;
+  transition: width 0.3s ease;
+}
+.btn:hover::after,
+.portfolio-event-btn:hover::after {
+  width: 100%;
 }
 
 /* Animate-scroll Effect */
@@ -203,10 +227,10 @@ body {
   position: relative;
   z-index: 3;
   margin-top: 30px;
-  width: 1500px;
+  width: 100%;
+  max-width: 1500px;
   overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .slider {
   display: flex;
@@ -234,20 +258,18 @@ body {
   transition: transform 0.5s ease;
 }
 .slide.active img {
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 5px 15px rgba(3, 3, 3, 0.6);
 }
 .slide .slide-info {
   max-width: 90%;
   margin: 10px auto 0;
   text-align: center;
   font-size: 35px;
-  color: #fff;
+  color: #f2f2f2;
   opacity: 0;
   transition: opacity 0.3s ease;
   padding: 0 20px;
   line-height: 1.2;
-  widows: 2;
-  orphans: 2;
 }
 .slide.active .slide-info {
   opacity: 1;
@@ -262,7 +284,7 @@ body {
   display: block;
   margin: 10px auto 0;
   padding: 8px 16px;
-  background: #ffffff;
+  background: #3c3939;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -270,7 +292,7 @@ body {
   transition: background 0.3s ease;
 }
 .slide.active .slide-detail-btn:hover {
-  background: #dddddd;
+  background: #ddd;
 }
 .slider-navigation {
   position: absolute;
@@ -285,7 +307,7 @@ body {
   transform: translateY(-50%);
   pointer-events: all;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   border: none;
   padding: 15px;
   cursor: pointer;
@@ -300,7 +322,7 @@ body {
 /* --- Portfolio Section Styles --- */
 .portfolio-section {
   padding: 50px 0;
-  background: #1c1c1c;
+  background: #222;
   margin-top: 30px;
   text-align: center;
 }
@@ -309,19 +331,6 @@ body {
   padding: 20px;
   text-align: center;
   margin-bottom: 40px;
-}
-.portfolio-event-btn {
-  background: #ffffff;
-  color: #000;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-  font-size: 2rem;
-}
-.portfolio-event-btn:hover {
-  background: #dddddd;
 }
 .portfolio-container {
   width: 90%;
@@ -333,7 +342,7 @@ body {
 }
 .portfolio-item {
   position: relative;
-  background: #2a2a2a;
+  background: #1e1d1d;
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
@@ -356,7 +365,7 @@ body {
 }
 .detail-btn {
   padding: 10px 20px;
-  background: #ffffff;
+  background: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -364,7 +373,7 @@ body {
   transition: background 0.3s ease;
 }
 .detail-btn:hover {
-  background: #dddddd;
+  background: #ddd;
 }
 .portfolio-image {
   width: 100%;
@@ -394,7 +403,7 @@ body {
   z-index: 6000;
 }
 .popchat-content {
-  background: #121212;
+  background: #000;
   padding: 40px;
   border-radius: 10px;
   position: relative;
