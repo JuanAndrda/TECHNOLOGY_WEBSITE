@@ -1,4 +1,15 @@
-
+document.addEventListener("DOMContentLoaded", function () {
+  // --- Sidebar Hide/Show on Scroll ---
+  let scrollTimeout;
+  const sidebar = document.querySelector(".sidebar");
+  window.addEventListener("scroll", function () {
+    if (sidebar) sidebar.classList.add("hide");
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (sidebar) sidebar.classList.remove("hide");
+    }, 300);
+  });
+});
 
 function openPopup(popupId) {
   const popup = document.getElementById(popupId);
@@ -49,5 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
         target.scrollIntoView({ behavior: 'smooth' });
       }
     });
+  });
+});
+const loadingScreen = document.getElementById("loading-screen");
+const navLinks = document.querySelectorAll(".sidebar a");
+navLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (loadingScreen) {
+      loadingScreen.style.display = "flex";
+    }
+    setTimeout(() => {
+      window.location.href = this.href;
+    }, 500);
   });
 });
