@@ -1,162 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Bulletin Board</title>
-    <link rel="stylesheet" href="css/infocss.css" />
-    <script defer src="js/infojs.js"></script>
-  </head>
-  <body>
-    <!-- Loading Screen for Page Transitions -->
-    <div id="loading-screen" class="loading-screen" style="display: none;">
-      <div class="spinner"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Bulletin Board</title>
+  <link rel="stylesheet" href="css/infocss.css" />
+  <script defer src="js/infojs.js"></script>
+</head>
+<body>
+  <!-- Loading Screen for Page Transitions -->
+  <div id="loading-screen" class="loading-screen" style="display: none">
+    <div class="spinner"></div>
+  </div>
 
-    <!-- Sidebar (Taskbar) -->
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <div class="top-icon">
-          <img src="images/image.png" alt="Top Icon" />
-        </div>
-        <span class="brand-text">TECHNO HUB</span>
+  <!-- Sidebar (Taskbar) -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <div class="top-icon">
+        <img src="images/image.png" alt="Top Icon" />
       </div>
-      <ul>
-        <li class="nav-item home">
-          <a href="index.html">
-            <img src="images/home.png" alt="Home" aria-label="Home" />
-          </a>
-        </li>
-        <li class="nav-item search">
-          <a href="info.html">
-            <img src="images/info.png" alt="Info" aria-label="Info" />
-          </a>
-        </li>
-        <li class="nav-item news">
-          <a href="recent.html">
-            <img src="images/news.png" alt="News" aria-label="News" />
-          </a>
-        </li>
-        <li class="nav-item reflection">
-          <a href="reflection.html">
-          <img src="images/reflection.png" alt="Reflection" aria-label="Reflection" />
+      <span class="brand-text">TECHNO HUB</span>
+    </div>
+    <ul>
+      <li class="nav-item home">
+        <a href="index.html">
+          <img src="images/home.png" alt="Home" aria-label="Home" />
         </a>
       </li>
-        <li class="nav-item people">
-          <a href="about.html">
-            <img src="images/people.png" alt="People" aria-label="People" />
-          </a>
-        </li>
+      <li class="nav-item search">
+        <a href="info.html">
+          <img src="images/info.png" alt="Info" aria-label="Info" />
+        </a>
+      </li>
+      <li class="nav-item news">
+        <a href="recent.html">
+          <img src="images/news.png" alt="News" aria-label="News" />
+        </a>
+      </li>
+      <li class="nav-item reflection">
+        <a href="reflection.html">
+          <img
+            src="images/reflection.png"
+            alt="Reflection"
+            aria-label="Reflection"
+          />
+        </a>
+      </li>
+      <li class="nav-item people">
+        <a href="about.html">
+          <img src="images/people.png" alt="People" aria-label="People" />
+        </a>
+      </li>
+    </ul>
+    <div class="footer-text">
+      <p>NSCI 110</p>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <img src="images/Untitled design (5).png" alt="Hero Background" class="hero-background">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>Welcome to <span>Tech Bulletin</span></h1>
+        <p>Explore innovations, trends, and technologies shaping the future — all in one place.</p>
+      </div>
+    </div>
+    <div class="scroll-indicator">&#x25BC;</div>
+  </section>
+  
+
+  <!-- Notification Bar -->
+  <div class="notification-bar">
+    TECH HUB
+  </div>
+
+  <header>
+    <h1>Tech Bulletin</h1>
+    <p>Your hub for the latest in technology.</p>
+  </header>
+
+  <main>
+    
+
+    <!-- Categorized Board -->
+    <div class="board">
+      <h2>Tech Basics</h2>
+      <div class="post-card" onclick="openPopup('popup1')">
+        <h2>What is Technology?</h2>
+        <p>Overview of tools and systems simplifying lives.</p>
+      </div>
+      <div class="post-card" onclick="openPopup('popup2')">
+        <h2>Technology Fundamentals</h2>
+        <p>Understand hardware and software basics.</p>
+      </div>
+
+      <h2>Innovations</h2>
+      <div class="post-card" onclick="openPopup('popup4')">
+        <h2>Innovative Gadgets</h2>
+        <p>Smart devices boosting daily routines.</p>
+      </div>
+      <div class="post-card" onclick="openPopup('popup6')">
+        <h2>Tech Innovations in Daily Life</h2>
+        <p>Voice assistants, AR, and fitness trackers.</p>
+      </div>
+
+      <h2>Future Trends</h2>
+      <div class="post-card" onclick="openPopup('popup7')">
+        <h2>The Future of Technology</h2>
+        <p>AI, renewable energy, and smarter systems.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popups -->
+  <div id="popup1" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('popup1')">&times;</span>
+      <h2>What is Technology?</h2>
+      <p>Technology is all about creating tools and systems that simplify our everyday lives. It touches everything—from the way we communicate to how we get around—and serves as the backbone for modern innovations.</p>
+      <a href="#detail-tech1" class="read-more">Read full article</a>
+    </div>
+  </div>
+
+  <div id="popup2" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('popup2')">&times;</span>
+      <h2>Technology Fundamentals</h2>
+      <p>At its core, technology consists of two major building blocks:</p>
+      <ul>
+        <li><strong>Hardware:</strong> The physical devices like computers, smartphones, and sensors.</li>
+        <li><strong>Software:</strong> The programs and applications that tell these devices how to work.</li>
       </ul>
-      <div class="footer-text">
-        <p>NSCI 110</p>
-      </div>
-    </nav>
+      <a href="#detail-tech2" class="read-more">Read full article</a>
+    </div>
+  </div>
 
-    <!-- Main Content (Tech Bulletin Board) -->
-    <div class="wrapper" style="margin-top: 60px;">
-      <header>
-        <h1>Tech Bulletin</h1>
-        <p>Your hub for the latest in technology.</p>
-      </header>
-      <main>
-        <div class="board">
-          <div class="post-card" onclick="openPopup('popup1')">
-            <h2>Latest Innovation</h2>
-            <p>Discover transformative AI tools.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup2')">
-            <h2>Tech Tip</h2>
-            <p>Boost productivity with these apps.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup3')">
-            <h2>Upcoming Event</h2>
-            <p>Join our blockchain webinar!</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup4')">
-            <h2>Featured Article</h2>
-            <p>Read insights on cybersecurity trends.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup5')">
-            <h2>Gadget Review</h2>
-            <p>Explore the latest foldable smartphones.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup6')">
-            <h2>Dev Resources</h2>
-            <p>Access free developer tools and guides.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup7')">
-            <h2>Community Spotlight</h2>
-            <p>Discover inspiring startups in tech.</p>
-          </div>
-          <div class="post-card" onclick="openPopup('popup8')">
-            <h2>Tech Trends</h2>
-            <p>Stay updated on emerging technologies.</p>
-          </div>
-        </div>
-      </main>
+  <div id="popup4" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('popup4')">&times;</span>
+      <h2>Innovative Gadgets</h2>
+      <p>Smart devices boosting daily routines.</p>
+      <a href="#detail-tech4" class="read-more">Read full article</a>
     </div>
+  </div>
 
-    <!-- Popup Modals -->
-    <div id="popup1" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup1')">&times;</span>
-        <h2>Latest Innovation</h2>
-        <p>Explore AI tools transforming industries like healthcare and finance.</p>
-      </div>
+  <div id="popup6" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('popup6')">&times;</span>
+      <h2>Tech Innovations in Daily Life</h2>
+      <p>Voice assistants, AR, and fitness trackers.</p>
+      <a href="#detail-tech6" class="read-more">Read full article</a>
     </div>
-    <div id="popup2" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup2')">&times;</span>
-        <h2>Tech Tip</h2>
-        <p>Maximize efficiency with productivity tools like Notion and Trello.</p>
-      </div>
-    </div>
-    <div id="popup3" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup3')">&times;</span>
-        <h2>Upcoming Event</h2>
-        <p>Join our webinar on blockchain and its real-world applications.</p>
-      </div>
-    </div>
-    <div id="popup4" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup4')">&times;</span>
-        <h2>Featured Article</h2>
-        <p>Learn about the latest cybersecurity trends and best practices.</p>
-      </div>
-    </div>
-    <div id="popup5" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup5')">&times;</span>
-        <h2>Gadget Review</h2>
-        <p>Check out our review of cutting-edge foldable smartphone technology.</p>
-      </div>
-    </div>
-    <div id="popup6" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup6')">&times;</span>
-        <h2>Dev Resources</h2>
-        <p>Access free tools, templates, and guides to enhance your coding skills.</p>
-      </div>
-    </div>
-    <div id="popup7" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup7')">&times;</span>
-        <h2>Community Spotlight</h2>
-        <p>Meet inspiring startups innovating the tech landscape.</p>
-      </div>
-    </div>
-    <div id="popup8" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closePopup('popup8')">&times;</span>
-        <h2>Tech Trends</h2>
-        <p>Discover the latest emerging technologies shaping the future.</p>
-      </div>
-    </div>
+  </div>
 
-    <footer>
-      <p>&copy; 2025 Tech Bulletin. All Rights Reserved.</p>
-    </footer>
-  </body>
+  <div id="popup7" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('popup7')">&times;</span>
+      <h2>The Future of Technology</h2>
+      <p>AI, renewable energy, and smarter systems.</p>
+      <a href="#detail-tech7" class="read-more">Read full article</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Tech Hub. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Third Section: Full Article Details -->
+<section id="details" class="details-section">
+  <div class="detail-block" id="detail-tech1">
+    <h2>What is Technology?</h2>
+    <img src="images/ebdfd3_9bc8c67f163d4286bceac5dd08a81298~mv2.gif" alt="Technology Concept" class="detail-image">
+    <p>TTechnology refers to the systematic application of scientific knowledge and engineering principles to develop tools, systems, and processes that address human needs and societal challenges. From primitive inventions such as the wheel and agricultural tools to contemporary advancements like artificial intelligence and space exploration, technology plays an essential role in shaping the evolution of civilization. It serves as a catalyst for innovation and progress, enhancing communication, transportation, healthcare, education, and countless other aspects of modern life.</p>
+  </div>
+
+  <div class="detail-block" id="detail-tech2">
+    <h2>Technology Fundamentals</h2>
+    <img src="images/giphy.gif" alt="Technology Fundamentals" class="detail-image">
+    <p>At its core, technology is composed of two fundamental components: hardware and software.
+
+      Hardware encompasses all physical and tangible elements of technological systems. These include electronic devices, mechanical systems, microprocessors, sensors, and other structural components.
+      
+      Software consists of the programmed instructions, algorithms, and operating systems that govern the functionality of hardware. It enables interaction, computation, data processing, and automation across digital platforms.
+      
+      The synergy between hardware and software forms the backbone of modern digital infrastructure, powering a wide range of applications from personal computing to global information systems.</p>
+  </div>
+
+  <div class="detail-block" id="detail-tech4">
+    <h2>Innovative Gadgets</h2>
+    <img src="images/Iwatch_activity GIF _ Gfycat.gif" alt="Innovative Gadgets" class="detail-image">
+    <p>In the digital age, innovative gadgets have emerged as integral tools for enhancing efficiency, convenience, and quality of life. These devices often incorporate advanced technologies such as artificial intelligence (AI), the Internet of Things (IoT), and real-time data analytics. Common examples include:
+
+      Smartwatches that monitor health metrics, facilitate communication, and provide instant notifications.
+      
+      Home automation systems that allow users to control lighting, temperature, and security remotely.
+      
+      AI-driven appliances that learn user behavior and optimize performance for daily tasks.
+      
+      Such innovations not only streamline daily routines but also contribute to a more connected and intelligent living environment.
+      
+      </p>
+  </div>
+
+  <div class="detail-block" id="detail-tech6">
+    <h2>Tech Innovations in Daily Life</h2>
+    <img src="images/Smart Home Icon.gif" alt="Tech Innovations" class="detail-image">
+    <p>Technological integration into everyday life is increasingly seamless and ubiquitous. Many modern tools and systems are designed to enhance personal productivity, well-being, and entertainment. Notable examples include:
+
+      Augmented Reality (AR): Enhances physical environments with digital overlays, widely used in education, retail, and interactive media.
+      
+      Smart Speakers: Employ voice recognition to assist with information retrieval, task management, and control of other smart devices.
+      
+      Wearable Fitness Trackers: Monitor physical activity, sleep patterns, and other health indicators, promoting a proactive approach to personal wellness.
+      
+      These innovations exemplify how emerging technologies are becoming indispensable in managing modern lifestyles.
+      
+      </p>
+  </div>
+
+  <div class="detail-block" id="detail-tech7">
+    <h2>The Future of Technology</h2>
+    <img src="images/1_TlbU0F-waQf7_zOfhUNldQ.gif" alt="Future of Technology" class="detail-image">
+    <p>Looking forward, technological development is expected to accelerate, bringing about transformative changes across various sectors. Key areas of focus include:
+
+      Autonomous Systems: Self-driving vehicles, automated manufacturing, and robotics are poised to redefine mobility, labor, and logistics.
+      
+      Clean Energy Solutions: Innovations in renewable energy and sustainable technologies are vital for addressing climate change and ensuring environmental sustainability.
+      
+      Artificial Intelligence and Smart Infrastructure: AI will continue to drive advancements in areas such as healthcare diagnostics, urban planning, and personalized learning.
+      
+      The future of technology holds immense potential to address complex global issues, improve quality of life, and foster a more sustainable and equitable society.
+      
+      </p>
+  </div>
+</section>
+
+</body>
 </html>
