@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- Infinite Circular Slider Setup ---
   const sliderWrapper = document.querySelector(".slider-wrapper");
   const teamSlider = document.querySelector(".team-slider");
-  
+
   // Get the real slider items
   let realSliderItems = Array.from(sliderWrapper.querySelectorAll(".slider-item"));
-  
+
   // If there are fewer than 3, duplicate them until there are at least 3.
   if (realSliderItems.length < 3) {
     const count = realSliderItems.length;
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     realSliderItems = Array.from(sliderWrapper.querySelectorAll(".slider-item"));
   }
-  
-  // — For smooth, endless looping with 3 visible slides, we’ll prepend 2 clones (the last two real slides)
+
+  // For smooth, endless looping with 3 visible slides, prepend 2 clones (the last two real slides)
   // and append 2 clones (the first two real slides)
-  const cloneCount = 2; 
+  const cloneCount = 2;
   // Prepend clones from the end (in order)
   for (let i = realSliderItems.length - cloneCount; i < realSliderItems.length; i++) {
     const clone = realSliderItems[i].cloneNode(true);
@@ -64,19 +64,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const clone = realSliderItems[i].cloneNode(true);
     sliderWrapper.appendChild(clone);
   }
-  
+
   // After cloning, update our slider items list.
   let sliderItems = Array.from(sliderWrapper.querySelectorAll(".slider-item"));
-  
-  // Define real slides range.
+
   // The real slides are now located from index = cloneCount to index = cloneCount + realSliderItems.length - 1.
   const realStart = cloneCount;
   const realCount = realSliderItems.length;
-  
+
   // Set currentIndex to the first real slide.
   let currentIndex = realStart;
   sliderWrapper.style.transition = "transform 0.5s ease-in-out";
-  
+
   // Update slider: centers the active slide and highlights it.
   const updateSlider = () => {
     sliderItems.forEach((item, index) => {
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const offset = activeItem.offsetLeft - (containerWidth - activeItem.offsetWidth) / 2;
     sliderWrapper.style.transform = `translateX(-${offset}px)`;
   };
-  
+
   // Unified function to move slides.
   const moveSlide = (direction) => {
     if (direction === "next") {
@@ -97,22 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     updateSlider();
   };
-  
+
   // Auto slide every 3 seconds.
   const autoSlide = () => moveSlide("next");
   let autoSlideInterval = setInterval(autoSlide, 3000);
-  
+
   // On transition end, check for clones at boundaries and reset seamlessly.
   sliderWrapper.addEventListener("transitionend", function () {
     if (currentIndex >= realStart + realCount) {
-      // If we've moved past the last real slide, subtract realCount.
       sliderWrapper.style.transition = "none";
       currentIndex = currentIndex - realCount;
       updateSlider();
       void sliderWrapper.offsetWidth; // force reflow
       sliderWrapper.style.transition = "transform 0.5s ease-in-out";
     } else if (currentIndex < realStart) {
-      // If we've moved before the first real slide, add realCount.
       sliderWrapper.style.transition = "none";
       currentIndex = currentIndex + realCount;
       updateSlider();
@@ -120,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sliderWrapper.style.transition = "transform 0.5s ease-in-out";
     }
   });
-  
+
   // Navigation buttons.
   const prevBtn = document.querySelector(".slider-btn.prev");
   const nextBtn = document.querySelector(".slider-btn.next");
@@ -134,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     moveSlide("next");
     autoSlideInterval = setInterval(autoSlide, 3000);
   });
-  
+
   // Swipe functionality.
   let touchStartX = 0, touchEndX = 0;
   const swipeThreshold = 50;
@@ -152,10 +149,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     autoSlideInterval = setInterval(autoSlide, 3000);
   });
-  
+
   // Update slider on window resize.
   window.addEventListener("resize", updateSlider);
-  
+
   // Initialize positioning.
   updateSlider();
 });
